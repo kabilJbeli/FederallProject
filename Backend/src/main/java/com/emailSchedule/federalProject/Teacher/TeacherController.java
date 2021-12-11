@@ -49,6 +49,7 @@ public class TeacherController {
 		try {
 			Teacher searchedTeacher = service.getTeacherById(id);
 			if (searchedTeacher.getTEACHER_ID() != null) {
+				teacher.setTEACHER_ID(id);
 				service.updateTeacher(teacher);
 			}
 		} catch (NoSuchElementException e) {

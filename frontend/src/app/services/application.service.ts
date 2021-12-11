@@ -13,7 +13,7 @@ export class ApplicationService{
   getAllTeacher() :Observable<Teacher[]> {
     return this.http.get<Teacher[]>('api/teacher/all');
   }
-  
+
   addTeacher(teacher:Teacher) :Observable<any> {
     return this.http.post('api/teacher/add',teacher);
   }
