@@ -1,0 +1,37 @@
+<div class="mt-5">
+<p-table [value]="Teachers" responsiveLayout="scroll">
+  <ng-template pTemplate="header">
+    <tr>
+      <th>Code</th>
+      <th>Cin</th>
+      <th>Name</th>
+      <th>Last Name</th>
+      <th>BirthDate</th>
+      <th>Actions</th>
+    </tr>
+  </ng-template>
+  <ng-template pTemplate="body" let-teacher>
+    <tr>
+      <td>{{teacher.teacher_ID}}</td>
+      <td>{{teacher.cin}}</td>
+      <td>{{teacher.name}}</td>
+      <td>{{teacher.lastname}}</td>
+      <td>{{teacher.birthdate}}</td>
+      <td>
+      <button mat-button (click)="removeTeacher(teacher.teacher_ID)">
+        remove
+
+      </button>
+        <button mat-button (click)="updateTeacher(teacher.teacher_ID)">
+          update
+
+        </button>
+        <button mat-button>
+          Consult Schedule
+        </button>
+
+      </td>
+    </tr>
+  </ng-template>
+</p-table>
+</div>
