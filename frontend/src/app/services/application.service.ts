@@ -6,19 +6,14 @@ import {Observable} from "rxjs";
 @Injectable({
   providedIn: 'root'
 })
-export class ApplicationService implements OnInit{
+export class ApplicationService{
 
   constructor(private http: HttpClient) { }
-
-  ngOnInit(): void {
-  }
-
-
 
   getAllTeacher() :Observable<Teacher[]> {
     return this.http.get<Teacher[]>('api/teacher/all');
   }
-
+  
   addTeacher(teacher:Teacher) :Observable<any> {
     return this.http.post('api/teacher/add',teacher);
   }
