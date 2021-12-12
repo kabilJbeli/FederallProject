@@ -22,8 +22,9 @@ import {AuthService} from "./auth.service";
 import {JWT_OPTIONS, JwtHelperService} from "@auth0/angular-jwt";
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { AddTeacherComponent } from './add-teacher/add-teacher.component';
-import {MaterialModule} from "./material.module";
+import {MaterialModule} from "./shared-module/material.module";
 import {UpdateTeacherComponent} from "./update-teacher/update-teacher.component";
+import { ActionModalComponent } from './action-modal/action-modal.component';
 
 
 
@@ -37,7 +38,8 @@ import {UpdateTeacherComponent} from "./update-teacher/update-teacher.component"
     DashboardComponent,
     SignInComponent,
     AddTeacherComponent,
-    UpdateTeacherComponent
+    UpdateTeacherComponent,
+    ActionModalComponent
   ],
   imports: [
     BrowserModule,
