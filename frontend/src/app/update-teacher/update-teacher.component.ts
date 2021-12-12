@@ -77,4 +77,8 @@ export class UpdateTeacherComponent implements OnInit {
         }
       );
   }
+
+  cancel(event: any): void {
+    this.route.navigate(['/teachers-list']);
+  }
 }
