@@ -34,6 +34,16 @@ export class MenuComponent implements OnInit {
           {label: 'Add Student' ,  command: (event: any) => {
             }},
         ]
+      },    {
+        label: 'Subjects',
+        items: [{
+          label: 'Subjects List',
+          command: (event: any) => {
+          }
+        },
+          {label: 'Add Subject' ,  command: (event: any) => {
+            }},
+        ]
       },
       {
         label: 'Groups',
