@@ -19,7 +19,7 @@ export class UpdateTeacherComponent implements OnInit {
       'name': [null, Validators.required],
       'lastname': [null, [Validators.required]],
       'cin': [null, [Validators.required, Validators.minLength(8), Validators.maxLength(8)]],
-      'birthdate': [null, []],
+      'birthdate': [null, [Validators.required]],
     });
     const id:number=parseInt(this._Activatedroute.snapshot.paramMap.get("id") || '0');
 

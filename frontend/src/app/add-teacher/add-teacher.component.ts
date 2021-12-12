@@ -18,7 +18,7 @@ export class AddTeacherComponent implements OnInit {
       'name': [null, Validators.required],
       'lastname': [null, [Validators.required]],
       'cin': [null, [Validators.required, Validators.minLength(8), Validators.maxLength(8)]],
-      'birthdate': [null, []],
+      'birthdate': [null, [Validators.required]],
     });
   }
 
