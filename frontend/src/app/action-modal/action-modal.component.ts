@@ -10,7 +10,9 @@ export class ActionModalComponent {
   constructor(
     public dialogRef: MatDialogRef<ActionModalComponent>,
     @Inject(MAT_DIALOG_DATA) public data?: any
-  ) {}
+  ) {
+    dialogRef.disableClose = true;
+  }
 
   onNoClick(): void {
     this.dialogRef.close();
