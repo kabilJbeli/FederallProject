@@ -1,4 +1,4 @@
-package com.emailSchedule.federalProject.Teacher;
+package com.emailSchedule.federalProject.entities;
 
 import java.time.LocalDate;
 

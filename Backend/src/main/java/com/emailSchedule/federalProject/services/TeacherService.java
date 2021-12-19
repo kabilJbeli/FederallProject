@@ -1,9 +1,12 @@
-package com.emailSchedule.federalProject.Teacher;
+package com.emailSchedule.federalProject.services;
 
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import com.emailSchedule.federalProject.entities.Teacher;
+import com.emailSchedule.federalProject.repositories.TeacherRepository;
 
 @Service
 public class TeacherService {
