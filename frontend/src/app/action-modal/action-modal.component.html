@@ -1,4 +1,5 @@
-<h1 mat-dialog-title class="text-center">Do You Want To Delete This {{data.name}}?</h1>
+<h1 mat-dialog-title class="text-center" *ngIf="data.action==='delete'">Are You Sure You Want To Delete This {{data.name}}?</h1>
+<h1 mat-dialog-title class="text-center" *ngIf="data.action==='update'">Are You Sure You Want To Update This {{data.name}}?</h1>
 <div mat-dialog-content>
 </div>
 <div mat-dialog-actions>

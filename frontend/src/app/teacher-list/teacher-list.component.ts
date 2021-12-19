@@ -32,8 +32,8 @@ export class TeacherListComponent implements OnInit {
   }
   removeTeacher(id: number) {
     const dialogRef = this.dialog.open(ActionModalComponent, {
-      width: '400px',
-      data: { name: 'Teacher' },
+      width: '500px',
+      data: { name: 'Teacher', action: 'delete' },
     });
     dialogRef.afterClosed().subscribe((result) => {
       if (result) {

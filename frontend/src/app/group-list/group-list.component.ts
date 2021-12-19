@@ -34,8 +34,8 @@ export class GroupListComponent implements OnInit {
 
   removeGroup(id: number) {
     const dialogRef = this.dialog.open(ActionModalComponent, {
-      width: '400px',
-      data: { name: 'Group' },
+      width: '500px',
+      data: { name: 'Group', action: 'delete' },
     });
     dialogRef.afterClosed().subscribe((result) => {
       if (result) {

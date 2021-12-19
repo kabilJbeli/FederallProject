@@ -13,8 +13,10 @@
 
 
     <div class="form-element">
-      <button mat-raised-button color="primary" type="submit" class="button" [disabled]="!formGroup.valid">Submit Form</button>
+      <button mat-button color="warn" type='button'   class="button mr-3" (click)="cancel($event)">Cancel</button>
+      <button mat-raised-button color="primary" type="submit" class="button" [disabled]="!formGroup.valid">Update Group</button>
     </div>
+
 
   </form>
   <div  *ngIf="spinner" class="w-100 d-flex justify-content-center align-items-center mt-5">

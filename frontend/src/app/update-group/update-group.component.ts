@@ -3,6 +3,8 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ApplicationService } from '../services/application.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Group } from '../models/group';
+import { ActionModalComponent } from '../action-modal/action-modal.component';
+import { MatDialog } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-update-group',
@@ -17,7 +19,8 @@ export class UpdateGroupComponent implements OnInit {
     private formBuilder: FormBuilder,
     private service: ApplicationService,
     private route: Router,
-    private _Activatedroute: ActivatedRoute
+    private _Activatedroute: ActivatedRoute,
+    public dialog: MatDialog
   ) {
     this.formGroup = this.formBuilder.group({
       groupname: [null, Validators.required],
@@ -44,17 +47,27 @@ export class UpdateGroupComponent implements OnInit {
   }
 
   onSubmit(group: Group) {
-    this.spinner = true;
     group.groupId = this.currentGroup.groupId;
-
-    this.service.updateGroup(group).subscribe(
-      (res) => {
-        this.route.navigate(['/group-list']);
-        this.spinner = false;
-      },
-      (error) => {
+    const dialogRef = this.dialog.open(ActionModalComponent, {
+      width: '500px',
+      data: { name: 'Group', action: 'update' },
+    });
+    dialogRef.afterClosed().subscribe((result) => {
+      if (result) {
         this.spinner = true;
+        this.service.updateGroup(group).subscribe(
+          (res) => {
+            this.route.navigate(['/group-list']);
+            this.spinner = false;
+          },
+          (error) => {
+            this.spinner = true;
+          }
+        );
       }
-    );
+    });
+  }
+  cancel(event: any): void {
+    this.route.navigate(['/group-list']);
   }
 }

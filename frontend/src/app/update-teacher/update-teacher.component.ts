@@ -4,6 +4,8 @@ import { ApplicationService } from '../services/application.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { Teacher } from '../models/teacher';
+import { ActionModalComponent } from '../action-modal/action-modal.component';
+import { MatDialog } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-update-teacher',
@@ -18,7 +20,8 @@ export class UpdateTeacherComponent implements OnInit {
     private formBuilder: FormBuilder,
     private service: ApplicationService,
     private route: Router,
-    private _Activatedroute: ActivatedRoute
+    private _Activatedroute: ActivatedRoute,
+    public dialog: MatDialog
   ) {
     this.formGroup = this.formBuilder.group({
       name: [null, Validators.required],
@@ -64,18 +67,26 @@ export class UpdateTeacherComponent implements OnInit {
   }
 
   onSubmit(teacher: any) {
-    this.spinner = true;
-    this.service
-      .updateTeacher(this.currentTeacher.teacher_ID, teacher)
-      .subscribe(
-        (res) => {
-          this.route.navigate(['/teachers-list']);
-          this.spinner = false;
-        },
-        (error) => {
-          this.spinner = true;
-        }
-      );
+    const dialogRef = this.dialog.open(ActionModalComponent, {
+      width: '500px',
+      data: { name: 'Teacher', action: 'update' },
+    });
+    dialogRef.afterClosed().subscribe((result) => {
+      if (result) {
+        this.spinner = true;
+        this.service
+          .updateTeacher(this.currentTeacher.teacher_ID, teacher)
+          .subscribe(
+            (res) => {
+              this.route.navigate(['/teachers-list']);
+              this.spinner = false;
+            },
+            (error) => {
+              this.spinner = true;
+            }
+          );
+      }
+    });
   }
 
   cancel(event: any): void {
