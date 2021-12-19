@@ -25,6 +25,9 @@ import { AddTeacherComponent } from './add-teacher/add-teacher.component';
 import {MaterialModule} from "./shared-module/material.module";
 import {UpdateTeacherComponent} from "./update-teacher/update-teacher.component";
 import { ActionModalComponent } from './action-modal/action-modal.component';
+import { AddGroupComponent } from './add-group/add-group.component';
+import { GroupListComponent } from './group-list/group-list.component';
+import { UpdateGroupComponent } from './update-group/update-group.component';
 
 
 
@@ -39,7 +42,10 @@ import { ActionModalComponent } from './action-modal/action-modal.component';
     SignInComponent,
     AddTeacherComponent,
     UpdateTeacherComponent,
-    ActionModalComponent
+    ActionModalComponent,
+    AddGroupComponent,
+    GroupListComponent,
+    UpdateGroupComponent
   ],
   imports: [
     BrowserModule,

@@ -53,9 +53,16 @@ export class MenuComponent implements OnInit {
         items: [
           {
             label: 'Groups List',
-            command: (event: any) => {},
+            command: (event: any) => {
+              this.route.navigate(['/group-list']);
+            },
           },
-          { label: 'Add Group', command: (event: any) => {} },
+          {
+            label: 'Add Group',
+            command: (event: any) => {
+              this.route.navigate(['/add-group']);
+            },
+          },
         ],
       },
       {

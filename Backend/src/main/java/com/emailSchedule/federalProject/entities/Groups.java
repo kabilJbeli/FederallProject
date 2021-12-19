@@ -7,25 +7,26 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @Entity
 @JsonIgnoreProperties({ "hibernateLazyInitializer" })
+@Table(name="Groupprojet")
 public class Groups {
 
-	@Column(name = "GROUPID")
+	@Column(name = "IDGROUP")
 	private Integer groupId;
 
-	@Column(name = "GROUPNAME")
+	@Column(name = "NAMEGROUP")
 	private String groupname;
 
-	@Column(name = "GROUPMAJORE")
+	@Column(name = "GROUPMAJOR")
 	private String groupmajore;
 
 	public Groups() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 
 	@Id

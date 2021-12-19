@@ -17,7 +17,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.emailSchedule.federalProject.entities.Groups;
-import com.emailSchedule.federalProject.service.GroupServive;
+import com.emailSchedule.federalProject.services.GroupServive;
 
 @RestController
 @CrossOrigin(origins = "*", allowedHeaders = "*")
