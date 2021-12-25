@@ -1,4 +1,4 @@
-package com.emailSchedule.federalProject.Teacher;
+package com.emailSchedule.federalProject.controllers;
 
 import java.util.List;
 import java.util.NoSuchElementException;
@@ -16,41 +16,43 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.emailSchedule.federalProject.entities.Groups;
+import com.emailSchedule.federalProject.services.GroupServive;
+
 @RestController
 @CrossOrigin(origins = "*", allowedHeaders = "*")
-@RequestMapping(value = "/teacher")
-public class TeacherController {
+@RequestMapping(value = "/groups")
+public class GroupController {
 
 	@Autowired
-	private TeacherService service;
+	private GroupServive service;
 
-	@GetMapping("/all")
-	public List<Teacher> getAll() {
-		return service.findAll();
+	@GetMapping("/findall")
+	public List<Groups> getAll() {
+		return service.findallgroup();
 	}
 
-	@GetMapping("/{id}")
-	public ResponseEntity<Teacher> getTeacherById(@PathVariable Integer id) {
+	@GetMapping("/find/{id}")
+	public ResponseEntity<Groups> getGroupsById(@PathVariable Integer id) {
 		try {
-			Teacher teacher = service.getTeacherById(id);
-			return new ResponseEntity<Teacher>(teacher, HttpStatus.OK);
+			Groups teacher = service.findgroup(id);
+			return new ResponseEntity<Groups>(teacher, HttpStatus.OK);
 		} catch (NoSuchElementException e) {
-			return new ResponseEntity<Teacher>(HttpStatus.NOT_FOUND);
+			return new ResponseEntity<Groups>(HttpStatus.NOT_FOUND);
 		}
 	}
 
-	@PostMapping("/add")
-	public void addTeacher(@RequestBody Teacher teacher) {
-		service.addTeacher(teacher);
+	@PostMapping("/create")
+	public void createGroups(@RequestBody Groups teacher) {
+		service.createorupdategroup(teacher);
 	}
 
-	@PutMapping("/update/{id}")
-	public void updateTeacher(@RequestBody Teacher teacher, @PathVariable Integer id) {
+	@PutMapping("/update")
+	public void updateGroups(@RequestBody Groups group) {
 		try {
-			Teacher searchedTeacher = service.getTeacherById(id);
-			if (searchedTeacher.getTEACHER_ID() != null) {
-				teacher.setTEACHER_ID(id);
-				service.updateTeacher(teacher);
+			Groups groupfound = service.findgroup(group.getGroupId());
+			if (groupfound != null) {
+				service.createorupdategroup(group);
 			}
 		} catch (NoSuchElementException e) {
 
@@ -60,9 +62,9 @@ public class TeacherController {
 	@DeleteMapping("/delete/{id}")
 	public void updateTeacher(@PathVariable Integer id) {
 		try {
-			Teacher searchedTeacher = service.getTeacherById(id);
-			if (searchedTeacher.getTEACHER_ID() != null) {
-				service.removeTeacher(id);
+			Groups searchedGroup = service.findgroup(id);
+			if (searchedGroup != null) {
+				service.deletegroup(searchedGroup);
 			}
 		} catch (NoSuchElementException e) {
 

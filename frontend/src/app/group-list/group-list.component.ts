@@ -3,15 +3,16 @@ import { Teacher } from '../models/teacher';
 import { ApplicationService } from '../services/application.service';
 import { Router } from '@angular/router';
 import { MatDialog } from '@angular/material/dialog';
+import { Group } from '../models/group';
 import { ActionModalComponent } from '../action-modal/action-modal.component';
 
 @Component({
-  selector: 'app-teacher-list',
-  templateUrl: './teacher-list.component.html',
-  styleUrls: ['./teacher-list.component.scss'],
+  selector: 'app-group-list',
+  templateUrl: './group-list.component.html',
+  styleUrls: ['./group-list.component.scss'],
 })
-export class TeacherListComponent implements OnInit {
-  public Teachers: Teacher[] = [];
+export class GroupListComponent implements OnInit {
+  public groups: Group[] = [];
   public spinner: boolean = false;
   constructor(
     private service: ApplicationService,
@@ -25,19 +26,20 @@ export class TeacherListComponent implements OnInit {
 
   getAll(): void {
     this.spinner = true;
-    this.service.getAllTeacher().subscribe((result: Teacher[]) => {
+    this.service.getAllGroup().subscribe((result: Group[]) => {
       this.spinner = false;
-      this.Teachers = result;
+      this.groups = result;
     });
   }
-  removeTeacher(id: number) {
+
+  removeGroup(id: number) {
     const dialogRef = this.dialog.open(ActionModalComponent, {
       width: '500px',
-      data: { name: 'Teacher', action: 'delete' },
+      data: { name: 'Group', action: 'delete' },
     });
     dialogRef.afterClosed().subscribe((result) => {
       if (result) {
-        this.service.removeTeacher(id).subscribe(
+        this.service.removeGroup(id).subscribe(
           (result) => {
             this.getAll();
           },
@@ -47,7 +49,7 @@ export class TeacherListComponent implements OnInit {
     });
   }
 
-  updateTeacher(id: number) {
-    this.route.navigate([`/update-teacher/${id}`]);
+  updateGroup(id: number) {
+    this.route.navigate([`/update-group/${id}`]);
   }
 }

@@ -1,0 +1,33 @@
+<div class="mt-5">
+  <p-table [value]="groups" responsiveLayout="scroll"  *ngIf="!spinner">
+    <ng-template pTemplate="header">
+      <tr>
+        <th>Code</th>
+        <th>Name</th>
+        <th>Major</th>
+        <th>Actions</th>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-group>
+      <tr>
+        <td>{{group.groupId}}</td>
+        <td>{{group.groupname}}</td>
+        <td>{{group.groupmajore}}</td>
+        <td>
+          <button mat-button (click)="removeGroup(group.groupId)">
+            remove
+          </button>
+          <button mat-button (click)="updateGroup(group.groupId)">
+            update
+          </button>
+          <button mat-button>
+            Consult Schedule
+          </button>
+        </td>
+      </tr>
+    </ng-template>
+  </p-table>
+  <div  *ngIf="spinner" class="w-100 d-flex justify-content-center align-items-center mt-5">
+    <mat-spinner></mat-spinner>
+  </div>
+</div>

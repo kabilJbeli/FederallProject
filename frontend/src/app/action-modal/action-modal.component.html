@@ -1,0 +1,8 @@
+<h1 mat-dialog-title class="text-center" *ngIf="data.action==='delete'">Are You Sure You Want To Delete This {{data.name}}?</h1>
+<h1 mat-dialog-title class="text-center" *ngIf="data.action==='update'">Are You Sure You Want To Update This {{data.name}}?</h1>
+<div mat-dialog-content>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onNoClick()">No</button>
+  <button mat-button [mat-dialog-close]="true" cdkFocusInitial>Yes</button>
+</div>
