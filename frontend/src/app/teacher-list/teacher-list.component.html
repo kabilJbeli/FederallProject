@@ -6,7 +6,8 @@
       <th>Cin</th>
       <th>Name</th>
       <th>Last Name</th>
-      <th>BirthDate</th>
+      <th>Email</th>
+      <th>Birth Date</th>
       <th>Actions</th>
     </tr>
   </ng-template>
@@ -16,6 +17,7 @@
       <td>{{teacher.cin}}</td>
       <td>{{teacher.name}}</td>
       <td>{{teacher.lastname}}</td>
+      <td>{{teacher.email}}</td>
       <td>{{teacher.birthdate}}</td>
       <td>
       <button mat-button (click)="removeTeacher(teacher.teacher_ID)">

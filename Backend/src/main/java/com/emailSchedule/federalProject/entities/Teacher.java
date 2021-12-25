@@ -26,6 +26,9 @@ public class Teacher {
 	@Column(name = "LASTNAME")
 	private String LASTNAME;
 
+	@Column(name = "EMAIL")
+	private String EMAIL;	
+
 	@Column(name = "BIRTHDATE")
 	private LocalDate BIRTHDATE;
 
@@ -34,12 +37,21 @@ public class Teacher {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Teacher(Integer cIN, String nAME, String lASTNAME, LocalDate bIRTHDATE) {
+	public Teacher(Integer cIN, String nAME, String lASTNAME, LocalDate bIRTHDATE,String eMAIL) {
 		super();
 		CIN = cIN;
 		NAME = nAME;
 		LASTNAME = lASTNAME;
 		BIRTHDATE = bIRTHDATE;
+		EMAIL = eMAIL;
+	}
+
+	public String getEMAIL() {
+		return EMAIL;
+	}
+
+	public void setEMAIL(String eMAIL) {
+		EMAIL = eMAIL;
 	}
 
 	public Integer getCIN() {

@@ -31,18 +31,20 @@ export class UpdateTeacherComponent implements OnInit {
         [Validators.required, Validators.minLength(8), Validators.maxLength(8)],
       ],
       birthdate: [null, [Validators.required]],
+      email: [null, [Validators.required, Validators.email]],
     });
     const id: number = parseInt(
       this._Activatedroute.snapshot.paramMap.get('id') || '0'
     );
 
-    this.service.getTeacher(id).subscribe((result: any) => {
+    this.service.getTeacher(id).subscribe((result: Teacher) => {
       this.currentTeacher = result;
       this.formGroup.patchValue({
         name: result.name,
         lastname: result.lastname,
         cin: result.cin,
         birthdate: result.birthdate,
+        email: result.email,
       });
     });
   }
@@ -66,7 +68,7 @@ export class UpdateTeacherComponent implements OnInit {
     });
   }
 
-  onSubmit(teacher: any) {
+  onSubmit(teacher: Teacher) {
     const dialogRef = this.dialog.open(ActionModalComponent, {
       width: '500px',
       data: { name: 'Teacher', action: 'update' },
