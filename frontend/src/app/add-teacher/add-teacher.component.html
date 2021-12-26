@@ -2,33 +2,33 @@
   <form [formGroup]="formGroup" (ngSubmit)="onSubmit(formGroup.value)" class="form" *ngIf="!spinner">
 
     <mat-form-field class="form-element">
-      <mat-label>Name</mat-label>
+      <mat-label>{{ 'teacher.name' | translate }}</mat-label>
       <input matInput  formControlName="name">
     </mat-form-field>
 
    <mat-form-field class="form-element">
-     <mat-label>Last Name</mat-label>
+     <mat-label>{{ 'teacher.lastName' | translate }}</mat-label>
      <input matInput  formControlName="lastname">
    </mat-form-field>
 
     <mat-form-field class="form-element">
-      <mat-label>Cin</mat-label>
+      <mat-label>{{ 'teacher.cin' | translate }}</mat-label>
       <input matInput type="number"  formControlName="cin">
     </mat-form-field>
 
     <mat-form-field class="form-element">
-      <mat-label>Email</mat-label>
+      <mat-label>{{ 'teacher.email' | translate }}</mat-label>
       <input matInput type="email"  formControlName="email">
     </mat-form-field>
     <mat-form-field appearance="fill">
-      <mat-label>Birth Date</mat-label>
+      <mat-label>{{ 'teacher.birthDate' | translate }}</mat-label>
       <input matInput [matDatepicker]="picker" formControlName="birthdate" readonly>
       <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
       <mat-datepicker #picker startView="year" ></mat-datepicker>
     </mat-form-field>
 
     <div class="form-element">
-      <button mat-raised-button color="primary" type="submit" class="button" [disabled]="!formGroup.valid">Add Teacher</button>
+      <button mat-raised-button color="primary" type="submit" class="button" [disabled]="!formGroup.valid">{{ 'teacher.addTeacher' | translate }}</button>
     </div>
 
   </form>

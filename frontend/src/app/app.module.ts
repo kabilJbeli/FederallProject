@@ -41,6 +41,10 @@ FullCalendarModule.registerPlugins([
   interactionPlugin,
 ]);
 
+import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { HttpClient } from '@angular/common/http';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -69,6 +73,13 @@ FullCalendarModule.registerPlugins([
     BrowserAnimationsModule,
     AppRoutingModule,
     NgbModule,
+    TranslateModule.forRoot({
+      loader: {
+        provide: TranslateLoader,
+        useFactory: HttpLoaderFactory,
+        deps: [HttpClient],
+      },
+    }),
     ServiceWorkerModule.register('ngsw-worker.js', {
       enabled: environment.production,
       // Register the ServiceWorker as soon as the app is stable
@@ -87,3 +98,7 @@ FullCalendarModule.registerPlugins([
   bootstrap: [AppComponent],
 })
 export class AppModule {}
+// required for AOT compilation
+export function HttpLoaderFactory(http: HttpClient): TranslateHttpLoader {
+  return new TranslateHttpLoader(http);
+}

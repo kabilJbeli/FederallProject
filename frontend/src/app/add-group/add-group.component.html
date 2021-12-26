@@ -2,18 +2,19 @@
   <form [formGroup]="formGroup" (ngSubmit)="onSubmit(formGroup.value)" class="form" *ngIf="!spinner">
 
     <mat-form-field class="form-element">
-      <mat-label>Name</mat-label>
+      <mat-label>{{ 'group.name' | translate }}</mat-label>
       <input matInput  formControlName="groupname">
     </mat-form-field>
 
-    <mat-form-field class="form-element">
-      <mat-label>Major</mat-label>
-      <input matInput  formControlName="groupmajore">
+    <mat-form-field appearance="fill">
+      <mat-label>{{ 'group.major' | translate }}</mat-label>
+      <mat-select formControlName="groupmajore">
+        <mat-option *ngFor="let major of Majors" [value]="major.majorType">{{major.majorType}}</mat-option>
+      </mat-select>
     </mat-form-field>
 
-
     <div class="form-element">
-      <button mat-raised-button color="primary" type="submit" class="button" [disabled]="!formGroup.valid">Add Group</button>
+      <button mat-raised-button color="primary" type="submit" class="button" [disabled]="!formGroup.valid">{{ 'group.addGroup' | translate }}</button>
     </div>
 
   </form>

@@ -2,10 +2,10 @@
   <p-table [value]="groups" responsiveLayout="scroll"  *ngIf="!spinner">
     <ng-template pTemplate="header">
       <tr>
-        <th>Code</th>
-        <th>Name</th>
-        <th>Major</th>
-        <th>Actions</th>
+        <th>{{ 'code' | translate }}</th>
+        <th>{{ 'group.name' | translate }}</th>
+        <th>{{ 'group.major' | translate }}</th>
+        <th>{{ 'actions' | translate }}</th>
       </tr>
     </ng-template>
     <ng-template pTemplate="body" let-group>
@@ -15,13 +15,13 @@
         <td>{{group.groupmajore}}</td>
         <td>
           <button mat-button (click)="removeGroup(group.groupId)">
-            remove
+            {{ 'remove' | translate }}
           </button>
           <button mat-button (click)="updateGroup(group.groupId)">
-            update
+            {{ 'update' | translate }}
           </button>
           <button mat-button (click)="goToSchedule(group.groupId)">
-            Consult Schedule
+            {{ 'consultSchedule' | translate }}
           </button>
         </td>
       </tr>

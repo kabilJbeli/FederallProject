@@ -1,0 +1,27 @@
+{
+  "code": "Code",
+  "actions": "Actions",
+  "remove": "remove",
+  "update": "update",
+  "consultSchedule": "Consult Schedule",
+  "cancel": "Cancel",
+  "no": "No",
+  "yes": "Yes",
+  "modalDeleteValidationMessage": "Are You Sure You Want To Delete This",
+  "modalUpdateValidationMessage": "Are You Sure You Want To Update This",
+  "teacher": {
+    "cin": "Cin",
+    "name": "Name",
+    "lastName": "Last Name",
+    "email": "Email",
+    "birthDate": "Birth Date",
+    "addTeacher": "Add Teacher",
+    "updateTeacher": "Update Teacher"
+  },
+  "group": {
+    "name": "Group Name",
+    "major": "Major",
+    "addGroup": "Add Group",
+    "updateGroup": "Update Group"
+  }
+}
