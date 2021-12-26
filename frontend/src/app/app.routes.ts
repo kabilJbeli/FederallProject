@@ -8,6 +8,7 @@ import { UpdateTeacherComponent } from './update-teacher/update-teacher.componen
 import { GroupListComponent } from './group-list/group-list.component';
 import { AddGroupComponent } from './add-group/add-group.component';
 import { UpdateGroupComponent } from './update-group/update-group.component';
+import { SchedulerComponent } from './scheduler/scheduler.component';
 export const ROUTES: Routes = [
   { path: 'sign-in', component: SignInComponent },
   {
@@ -38,6 +39,12 @@ export const ROUTES: Routes = [
   {
     path: 'add-group',
     component: AddGroupComponent,
+    canActivate: [AuthGuard],
+  },
+  {
+    path: 'schedule',
+    component: SchedulerComponent,
+    children: [{ path: ':type/:id', component: SchedulerComponent }],
     canActivate: [AuthGuard],
   },
   {

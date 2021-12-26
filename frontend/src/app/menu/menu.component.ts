@@ -70,7 +70,9 @@ export class MenuComponent implements OnInit {
         items: [
           {
             label: 'Consult  Agendas',
-            command: (event: any) => {},
+            command: (event: any) => {
+              this.route.navigate(['/schedule']);
+            },
           },
         ],
       },

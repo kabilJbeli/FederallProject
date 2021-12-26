@@ -52,4 +52,7 @@ export class GroupListComponent implements OnInit {
   updateGroup(id: number) {
     this.route.navigate([`/update-group/${id}`]);
   }
+  goToSchedule(id: number) {
+    this.route.navigate([`/schedule/group/${id}`]);
+  }
 }
