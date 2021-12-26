@@ -30,7 +30,7 @@ import { AddGroupComponent } from './add-group/add-group.component';
 import { GroupListComponent } from './group-list/group-list.component';
 import { UpdateGroupComponent } from './update-group/update-group.component';
 import { SchedulerComponent } from './scheduler/scheduler.component';
-
+import { HighchartsChartModule } from 'highcharts-angular';
 import dayGridPlugin from '@fullcalendar/daygrid';
 import timeGridPlugin from '@fullcalendar/timegrid';
 import interactionPlugin from '@fullcalendar/interaction';
@@ -64,11 +64,12 @@ import { HttpClient } from '@angular/common/http';
   imports: [
     BrowserModule,
     FullCalendarModule,
-
     AccordionModule,
     HttpClientModule,
     SharedModule,
     ReactiveFormsModule,
+    HighchartsChartModule,
+
     MaterialModule,
     BrowserAnimationsModule,
     AppRoutingModule,
