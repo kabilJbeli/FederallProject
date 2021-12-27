@@ -72,7 +72,7 @@ export class UpdateClassRoomComponent implements OnInit {
           .updateClassRoom(this.currentClassRoom.classroom_id, classRoom)
           .subscribe(
             (res) => {
-              this.route.navigate(['/teachers-list']);
+              this.route.navigate(['/class-room-list']);
               this.spinner = false;
             },
             (error) => {
