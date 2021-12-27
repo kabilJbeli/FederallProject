@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 import com.emailSchedule.federalProject.entities.Groups;
 import com.emailSchedule.federalProject.repositories.GroupRepository;
 @Service
-public class GroupServive {
+public class GroupService {
 	
 	@Autowired
 	private GroupRepository grouprepo;

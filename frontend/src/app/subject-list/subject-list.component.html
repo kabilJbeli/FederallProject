@@ -1,0 +1,33 @@
+<div class="mt-5">
+    <p-table [value]="Subjects" responsiveLayout="scroll"  *ngIf="!spinner">
+      <ng-template pTemplate="header">
+        <tr>
+          <th>{{ 'id' | translate }}</th>
+          <th>{{ 'subject.name' | translate }}</th>
+          <th>{{ 'subject.credit' | translate }}</th>
+          <th>{{ 'subject.courseload' | translate }}</th>
+          <th>{{ 'actions' | translate }}</th>
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="body" let-subject>
+        <tr>
+          <td>{{subject.subject_ID}}</td>
+          <td>{{subject.subject_NAME}}</td>
+          <td>{{subject.credit}}</td>
+          <td>{{subject.course_LOAD}}</td>
+          <td>
+          <button mat-button (click)="removeSubject(subject.subject_ID)">
+            {{ 'remove' | translate }}
+          </button>
+            <button mat-button (click)="updateSubject(subject.subject_ID)">
+              {{ 'update' | translate }}
+            </button>
+          </td>
+        </tr>
+      </ng-template>
+    </p-table>
+      <div  *ngIf="spinner" class="w-100 d-flex justify-content-center align-items-center mt-5">
+        <mat-spinner></mat-spinner>
+      </div>
+    </div>
+    

@@ -4,17 +4,21 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { SignInComponent } from './sign-in/sign-in.component';
 import { TeacherListComponent } from './teacher-list/teacher-list.component';
 import { AddTeacherComponent } from './add-teacher/add-teacher.component';
+import { AddSubjectComponent } from './add-subject/add-subject.component';
 import { UpdateTeacherComponent } from './update-teacher/update-teacher.component';
 import { UpdateStudentComponent } from './update-student/update-student.component';
 import { GroupListComponent } from './group-list/group-list.component';
 import { AddGroupComponent } from './add-group/add-group.component';
 import { UpdateGroupComponent } from './update-group/update-group.component';
+import { UpdateSubjectComponent } from './update-subject/update-subject.component';
 import { SchedulerComponent } from './scheduler/scheduler.component';
 import { AddStudentComponent } from './add-student/add-student.component';
 import { StudentListComponent } from './student-list/student-list.component';
 import { ClassRoomListComponent } from './class-room-list/class-room-list.component';
 import { AddClassRoomComponent } from './add-class-room/add-class-room.component';
 import { UpdateClassRoomComponent } from './update-class-room/update-class-room.component';
+import { SubjectListComponent } from './subject-list/subject-list.component';
+
 export const ROUTES: Routes = [
   { path: 'sign-in', component: SignInComponent },
   {
@@ -33,6 +37,11 @@ export const ROUTES: Routes = [
     canActivate: [AuthGuard],
   },
   {
+    path: 'subjects-list',
+    component: SubjectListComponent,
+    canActivate: [AuthGuard],
+  },
+  {
     path: 'add-teacher',
     component: AddTeacherComponent,
     canActivate: [AuthGuard],
@@ -48,6 +57,11 @@ export const ROUTES: Routes = [
     canActivate: [AuthGuard],
   },
   {
+    path: 'add-subject',
+    component: AddSubjectComponent,
+    canActivate: [AuthGuard],
+  },
+  {
     path: 'update-teacher/:id',
     component: UpdateTeacherComponent,
     canActivate: [AuthGuard],
@@ -60,6 +74,11 @@ export const ROUTES: Routes = [
   {
     path: 'update-student/:id',
     component: UpdateStudentComponent,
+    canActivate: [AuthGuard],
+  },
+  {
+    path: 'update-subject/:id',
+    component: UpdateSubjectComponent,
     canActivate: [AuthGuard],
   },
   {

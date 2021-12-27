@@ -50,6 +50,9 @@ import { UpdateStudentComponent } from './update-student/update-student.componen
 import { ClassRoomListComponent } from './class-room-list/class-room-list.component';
 import { AddClassRoomComponent } from './add-class-room/add-class-room.component';
 import { UpdateClassRoomComponent } from './update-class-room/update-class-room.component';
+import { UpdateSubjectComponent } from './update-subject/update-subject.component';
+import { SubjectListComponent } from './subject-list/subject-list.component';
+import { AddSubjectComponent } from './add-subject/add-subject.component';
 
 @NgModule({
   declarations: [
@@ -72,6 +75,9 @@ import { UpdateClassRoomComponent } from './update-class-room/update-class-room.
     ClassRoomListComponent,
     AddClassRoomComponent,
     UpdateClassRoomComponent,
+    UpdateSubjectComponent,
+    SubjectListComponent,
+    AddSubjectComponent,
   ],
   imports: [
     BrowserModule,

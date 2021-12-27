@@ -6,6 +6,7 @@ import { Group } from '../models/group';
 import { Major } from '../models/Major';
 import { Student } from '../models/student';
 import { ClassRoom } from '../models/classRoom';
+import { Subject } from '../models/subject';
 
 @Injectable({
   providedIn: 'root',
@@ -82,4 +83,21 @@ export class ApplicationService {
   updateClassRoom(id: number, classRoom: ClassRoom): Observable<ClassRoom> {
     return this.http.put<ClassRoom>(`api/classroom/update/${id}`, classRoom);
   }
+  getAllSubject(): Observable<Subject[]> {
+    return this.http.get<Subject[]>('api/subject/all');
+  }
+
+  addSubject(subject: Subject): Observable<any> {
+    return this.http.post('api/subject/add', subject);
+  }
+  removeSubject(id: number): Observable<any> {
+    return this.http.delete(`api/subject/delete/${id}`);
+  }
+  getSubject(id: number): Observable<Subject> {
+    return this.http.get<Subject>(`api/subject/${id}`);
+  }
+  updateSubject(id: number, subject: Subject): Observable<Subject> {
+    return this.http.put<Subject>(`api/subject/update/${id}`, subject);
+  }
+
 }
