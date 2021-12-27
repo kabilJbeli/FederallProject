@@ -67,6 +67,7 @@ export class UpdateClassRoomComponent implements OnInit {
     dialogRef.afterClosed().subscribe((result) => {
       if (result) {
         this.spinner = true;
+        classRoom.classroom_id = this.currentClassRoom.classroom_id;
         this.service
           .updateClassRoom(this.currentClassRoom.classroom_id, classRoom)
           .subscribe(
