@@ -15,6 +15,11 @@ export class DashboardComponent implements OnInit {
       plotBorderWidth: 0,
       plotShadow: false,
     },
+    legend: { enabled: false },
+
+    credits: {
+      enabled: false,
+    },
     title: {
       text: 'Student Per Major',
     },

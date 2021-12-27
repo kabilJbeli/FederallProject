@@ -12,11 +12,19 @@ import { UpdateGroupComponent } from './update-group/update-group.component';
 import { SchedulerComponent } from './scheduler/scheduler.component';
 import { AddStudentComponent } from './add-student/add-student.component';
 import { StudentListComponent } from './student-list/student-list.component';
+import { ClassRoomListComponent } from './class-room-list/class-room-list.component';
+import { AddClassRoomComponent } from './add-class-room/add-class-room.component';
+import { UpdateClassRoomComponent } from './update-class-room/update-class-room.component';
 export const ROUTES: Routes = [
   { path: 'sign-in', component: SignInComponent },
   {
     path: 'teachers-list',
     component: TeacherListComponent,
+    canActivate: [AuthGuard],
+  },
+  {
+    path: 'class-room-list',
+    component: ClassRoomListComponent,
     canActivate: [AuthGuard],
   },
   {
@@ -30,6 +38,11 @@ export const ROUTES: Routes = [
     canActivate: [AuthGuard],
   },
   {
+    path: 'add-class-room',
+    component: AddClassRoomComponent,
+    canActivate: [AuthGuard],
+  },
+  {
     path: 'add-student',
     component: AddStudentComponent,
     canActivate: [AuthGuard],
@@ -37,6 +50,11 @@ export const ROUTES: Routes = [
   {
     path: 'update-teacher/:id',
     component: UpdateTeacherComponent,
+    canActivate: [AuthGuard],
+  },
+  {
+    path: 'update-class-room/:id',
+    component: UpdateClassRoomComponent,
     canActivate: [AuthGuard],
   },
   {

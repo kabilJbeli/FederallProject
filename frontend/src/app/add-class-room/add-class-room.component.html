@@ -1,0 +1,24 @@
+<div class="container">
+  <form [formGroup]="formGroup" (ngSubmit)="onSubmit(formGroup.value)" class="form" *ngIf="!spinner">
+
+    <mat-form-field class="form-element">
+      <mat-label>{{ 'classRoom.classNumber' | translate }}</mat-label>
+      <input matInput  formControlName="classroom_number">
+    </mat-form-field>
+
+    <mat-form-field class="form-element">
+      <mat-label>{{ 'classRoom.stage' | translate }}</mat-label>
+      <input matInput  formControlName="stage">
+    </mat-form-field>
+
+
+
+    <div class="form-element">
+      <button mat-raised-button color="primary" type="submit" class="button" [disabled]="!formGroup.valid">{{ 'classRoom.addClassRoom' | translate }}</button>
+    </div>
+
+  </form>
+  <div  *ngIf="spinner" class="w-100 d-flex justify-content-center align-items-center mt-5">
+    <mat-spinner></mat-spinner>
+  </div>
+</div>

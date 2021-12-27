@@ -43,9 +43,12 @@ export class MenuComponent implements OnInit {
               this.route.navigate(['/students-list']);
             },
           },
-          { label: 'Add Student', command: (event: any) => {
-            this.route.navigate(['/add-student']);
-          } },
+          {
+            label: 'Add Student',
+            command: (event: any) => {
+              this.route.navigate(['/add-student']);
+            },
+          },
         ],
       },
       {
@@ -57,9 +60,12 @@ export class MenuComponent implements OnInit {
               this.route.navigate(['/subjects-list']);
             },
           },
-          { label: 'Add Subject', command: (event: any) => {
-            this.route.navigate(['/add-subject']);
-          } },
+          {
+            label: 'Add Subject',
+            command: (event: any) => {
+              this.route.navigate(['/add-subject']);
+            },
+          },
         ],
       },
       {
@@ -105,9 +111,16 @@ export class MenuComponent implements OnInit {
         items: [
           {
             label: 'Classrooms List',
-            command: (event: any) => {},
+            command: (event: any) => {
+              this.route.navigate(['/class-room-list']);
+            },
           },
-          { label: 'Add Classroom', command: (event: any) => {} },
+          {
+            label: 'Add Classroom',
+            command: (event: any) => {
+              this.route.navigate(['/add-class-room']);
+            },
+          },
         ],
       },
       {

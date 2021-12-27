@@ -32,5 +32,11 @@
     "major": "Major",
     "addGroup": "Add Group",
     "updateGroup": "Update Group"
+  },
+  "classRoom": {
+    "classNumber": "Class Room Number",
+    "stage": "Stage",
+    "addClassRoom": "Add Class Room",
+    "updateClassRoom": "Update Class Room"
   }
 }
