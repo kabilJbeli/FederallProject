@@ -7,6 +7,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
@@ -31,6 +32,8 @@ public class Teacher {
 
 	@Column(name = "BIRTHDATE")
 	private LocalDate BIRTHDATE;
+	
+	private Departement departement;
 
 	public Teacher() {
 		super();
@@ -95,5 +98,12 @@ public class Teacher {
 	public void setTEACHER_ID(Integer tEACHER_ID) {
 		TEACHER_ID = tEACHER_ID;
 	}
+	@OneToOne(mappedBy = "teacher")
+	public Departement getDepartement() {
+		return departement;
+	}
 
+	public void setDepartement(Departement departement) {
+		this.departement = departement;
+	}
 }
