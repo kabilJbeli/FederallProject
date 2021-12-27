@@ -4,6 +4,8 @@ import { ApplicationService } from '../services/application.service';
 import { Router } from '@angular/router';
 import { Teacher } from '../models/teacher';
 import { Group } from '../models/group';
+import { Observable, Subscription } from 'rxjs';
+import { Major } from '../models/Major';
 
 @Component({
   selector: 'app-add-group',
@@ -13,6 +15,7 @@ import { Group } from '../models/group';
 export class AddGroupComponent implements OnInit {
   public formGroup: FormGroup;
   public spinner: boolean = false;
+  public Majors: Major[] = [];
   constructor(
     private formBuilder: FormBuilder,
     private service: ApplicationService,
@@ -21,6 +24,9 @@ export class AddGroupComponent implements OnInit {
     this.formGroup = this.formBuilder.group({
       groupname: [null, Validators.required],
       groupmajore: [null, [Validators.required]],
+    });
+    this.service.getAllMajor().subscribe((response: Major[]) => {
+      this.Majors = response;
     });
   }
 

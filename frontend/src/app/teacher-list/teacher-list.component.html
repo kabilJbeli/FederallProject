@@ -2,12 +2,13 @@
 <p-table [value]="Teachers" responsiveLayout="scroll"  *ngIf="!spinner">
   <ng-template pTemplate="header">
     <tr>
-      <th>Code</th>
-      <th>Cin</th>
-      <th>Name</th>
-      <th>Last Name</th>
-      <th>BirthDate</th>
-      <th>Actions</th>
+      <th>{{ 'code' | translate }}</th>
+      <th>{{ 'teacher.code' | translate }}</th>
+      <th>{{ 'teacher.name' | translate }}</th>
+      <th>{{ 'teacher.lastName' | translate }}</th>
+      <th>{{ 'teacher.email' | translate }}</th>
+      <th>{{ 'teacher.birthDate' | translate }}</th>
+      <th>{{ 'actions' | translate }}</th>
     </tr>
   </ng-template>
   <ng-template pTemplate="body" let-teacher>
@@ -16,16 +17,17 @@
       <td>{{teacher.cin}}</td>
       <td>{{teacher.name}}</td>
       <td>{{teacher.lastname}}</td>
+      <td>{{teacher.email}}</td>
       <td>{{teacher.birthdate}}</td>
       <td>
       <button mat-button (click)="removeTeacher(teacher.teacher_ID)">
-        remove
+        {{ 'remove' | translate }}
       </button>
         <button mat-button (click)="updateTeacher(teacher.teacher_ID)">
-          update
+          {{ 'update' | translate }}
         </button>
-        <button mat-button>
-          Consult Schedule
+        <button mat-button (click)="goToSchedule(teacher.teacher_ID)">
+          {{ 'consultSchedule' | translate }}
         </button>
       </td>
     </tr>

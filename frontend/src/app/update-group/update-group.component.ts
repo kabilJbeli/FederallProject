@@ -5,6 +5,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Group } from '../models/group';
 import { ActionModalComponent } from '../action-modal/action-modal.component';
 import { MatDialog } from '@angular/material/dialog';
+import { Major } from '../models/Major';
 
 @Component({
   selector: 'app-update-group',
@@ -15,6 +16,8 @@ export class UpdateGroupComponent implements OnInit {
   public formGroup: FormGroup;
   public spinner: boolean = false;
   private currentGroup: any;
+  public Majors: Major[] = [];
+
   constructor(
     private formBuilder: FormBuilder,
     private service: ApplicationService,
@@ -26,7 +29,9 @@ export class UpdateGroupComponent implements OnInit {
       groupname: [null, Validators.required],
       groupmajore: [null, [Validators.required]],
     });
-
+    this.service.getAllMajor().subscribe((response: Major[]) => {
+      this.Majors = response;
+    });
     const id: number = parseInt(
       this._Activatedroute.snapshot.paramMap.get('id') || '0'
     );

@@ -12,6 +12,12 @@ export class MenuComponent implements OnInit {
   constructor(private route: Router) {
     this.items = [
       {
+        icon: 'pi pi-fw pi-home',
+        command: (event: any) => {
+          this.route.navigate(['/dashboard']);
+        },
+      },
+      {
         label: 'Teachers',
         items: [
           {
@@ -70,7 +76,9 @@ export class MenuComponent implements OnInit {
         items: [
           {
             label: 'Consult  Agendas',
-            command: (event: any) => {},
+            command: (event: any) => {
+              this.route.navigate(['/schedule']);
+            },
           },
         ],
       },

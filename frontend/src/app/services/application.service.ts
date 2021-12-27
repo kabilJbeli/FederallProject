@@ -3,6 +3,7 @@ import { HttpClient, HttpResponse } from '@angular/common/http';
 import { Teacher } from '../models/teacher';
 import { Observable } from 'rxjs';
 import { Group } from '../models/group';
+import { Major } from '../models/Major';
 
 @Injectable({
   providedIn: 'root',
@@ -42,5 +43,8 @@ export class ApplicationService {
   }
   updateGroup(group: Group): Observable<Group> {
     return this.http.put<Group>(`api/groups/update`, group);
+  }
+  getAllMajor(): Observable<Major[]> {
+    return this.http.get<Major[]>(`api/major/all`);
   }
 }

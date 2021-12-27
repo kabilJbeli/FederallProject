@@ -50,4 +50,8 @@ export class TeacherListComponent implements OnInit {
   updateTeacher(id: number) {
     this.route.navigate([`/update-teacher/${id}`]);
   }
+
+  goToSchedule(id: number) {
+    this.route.navigate([`/schedule/teacher/${id}`]);
+  }
 }

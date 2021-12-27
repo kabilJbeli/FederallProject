@@ -26,6 +26,7 @@ export class AddTeacherComponent implements OnInit {
         [Validators.required, Validators.minLength(8), Validators.maxLength(8)],
       ],
       birthdate: [null, [Validators.required]],
+      email: [null, [Validators.required, Validators.email]],
     });
   }
 
@@ -35,28 +36,16 @@ export class AddTeacherComponent implements OnInit {
     return this.formGroup.controls;
   }
 
-  checkInUseEmail(control: any) {
-    // mimic http database access
-    let db: any[] = [];
-    return new Observable((observer) => {
-      setTimeout(() => {
-        let result =
-          db.indexOf(control.value) !== -1 ? { alreadyInUse: true } : null;
-        observer.next(result);
-        observer.complete();
-      }, 4000);
-    });
-  }
-
-
-
-  onSubmit(teacher:Teacher) {
-    this.spinner=true;
-    this.service.addTeacher(teacher).subscribe((res:any)=>{
-      this.route.navigate(['/teachers-list']);
-      this.spinner=false;
-    },error => {
-      this.spinner=true;
-    })
+  onSubmit(teacher: Teacher) {
+    this.spinner = true;
+    this.service.addTeacher(teacher).subscribe(
+      (res) => {
+        this.route.navigate(['/teachers-list']);
+        this.spinner = false;
+      },
+      (error) => {
+        this.spinner = true;
+      }
+    );
   }
 }

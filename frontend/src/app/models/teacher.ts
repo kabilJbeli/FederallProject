@@ -1,7 +1,8 @@
 export interface Teacher {
-  TEACHER_ID:number;
-  CIN:number;
-  NAME:String;
-  LASTNAME:String;
-  BIRTHDATE:Date;
+  teacher_id: number;
+  cin: number;
+  name: String;
+  lastname: String;
+  birthdate: Date;
+  email: String;
 }
