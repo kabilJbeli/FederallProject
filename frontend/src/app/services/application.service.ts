@@ -4,6 +4,8 @@ import { Teacher } from '../models/teacher';
 import { Observable } from 'rxjs';
 import { Group } from '../models/group';
 import { Major } from '../models/Major';
+import { Student } from '../models/student';
+
 
 @Injectable({
   providedIn: 'root',
@@ -47,4 +49,22 @@ export class ApplicationService {
   getAllMajor(): Observable<Major[]> {
     return this.http.get<Major[]>(`api/major/all`);
   }
+
+  getAllStudent(): Observable<Student[]> {
+    return this.http.get<Student[]>('api/student/all');
+  }
+
+  addStudent(student: Student): Observable<any> {
+    return this.http.post('api/student/add', student);
+  }
+  removeStudent(id: number): Observable<any> {
+    return this.http.delete(`api/student/delete/${id}`);
+  }
+  getStudent(id: number): Observable<Student> {
+    return this.http.get<Student>(`api/student/${id}`);
+  }
+  updateStudent(id: number, student: Student): Observable<Student> {
+    return this.http.put<Student>(`api/student/update/${id}`, student);
+  }
+
 }
