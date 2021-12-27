@@ -48,16 +48,15 @@ export class AddTeacherComponent implements OnInit {
     });
   }
 
-  onSubmit(teacher: Teacher) {
-    this.spinner = true;
-    this.service.addTeacher(teacher).subscribe(
-      (res) => {
-        this.route.navigate(['/teachers-list']);
-        this.spinner = false;
-      },
-      (error) => {
-        this.spinner = true;
-      }
-    );
+
+
+  onSubmit(teacher:Teacher) {
+    this.spinner=true;
+    this.service.addTeacher(teacher).subscribe((res:any)=>{
+      this.route.navigate(['/teachers-list']);
+      this.spinner=false;
+    },error => {
+      this.spinner=true;
+    })
   }
 }
