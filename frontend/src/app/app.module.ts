@@ -44,6 +44,9 @@ FullCalendarModule.registerPlugins([
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { HttpClient } from '@angular/common/http';
+import { AddStudentComponent } from './add-student/add-student.component';
+import { StudentListComponent } from './student-list/student-list.component';
+import { UpdateStudentComponent } from './update-student/update-student.component';
 
 @NgModule({
   declarations: [
@@ -60,6 +63,9 @@ import { HttpClient } from '@angular/common/http';
     GroupListComponent,
     UpdateGroupComponent,
     SchedulerComponent,
+    AddStudentComponent,
+    StudentListComponent,
+    UpdateStudentComponent,
   ],
   imports: [
     BrowserModule,

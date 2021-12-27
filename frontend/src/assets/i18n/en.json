@@ -18,6 +18,15 @@
     "addTeacher": "Add Teacher",
     "updateTeacher": "Update Teacher"
   },
+  "student": {
+    "cin": "Cin",
+    "name": "Name",
+    "lastName": "Last Name",
+    "email": "Email",
+    "birthDate": "Birth Date",
+    "addStudent": "Add Student",
+    "updateStudent": "Update Student"
+  },
   "group": {
     "name": "Group Name",
     "major": "Major",

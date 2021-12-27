@@ -1,0 +1,40 @@
+<div class="mt-5">
+    <p-table [value]="Students" responsiveLayout="scroll"  *ngIf="!spinner">
+      <ng-template pTemplate="header">
+        <tr>
+          <th>{{ 'code' | translate }}</th>
+          <th>{{ 'student.cin' | translate }}</th>
+          <th>{{ 'student.name' | translate }}</th>
+          <th>{{ 'student.lastName' | translate }}</th>
+          <th>{{ 'student.email' | translate }}</th>
+          <th>{{ 'student.birthDate' | translate }}</th>
+          <th>{{ 'actions' | translate }}</th>
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="body" let-student>
+        <tr>
+          <td>{{student.student_ID}}</td>
+          <td>{{student.cin}}</td>
+          <td>{{student.name}}</td>
+          <td>{{student.lastname}}</td>
+          <td>{{student.email}}</td>
+          <td>{{student.birthdate}}</td>
+          <td>
+          <button mat-button (click)="removeStudent(student.student_ID)">
+            {{ 'remove' | translate }}
+          </button>
+            <button mat-button (click)="updateStudent(student.student_ID)">
+              {{ 'update' | translate }}
+            </button>
+            <button mat-button (click)="goToSchedule(student.student_ID)">
+              {{ 'consultSchedule' | translate }}
+            </button>
+          </td>
+        </tr>
+      </ng-template>
+    </p-table>
+      <div  *ngIf="spinner" class="w-100 d-flex justify-content-center align-items-center mt-5">
+        <mat-spinner></mat-spinner>
+      </div>
+    </div>
+    
