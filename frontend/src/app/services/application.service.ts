@@ -5,6 +5,7 @@ import { Observable } from 'rxjs';
 import { Group } from '../models/group';
 import { Major } from '../models/Major';
 import { Student } from '../models/student';
+import { Subject } from '../models/subject';
 
 
 @Injectable({
@@ -65,6 +66,23 @@ export class ApplicationService {
   }
   updateStudent(id: number, student: Student): Observable<Student> {
     return this.http.put<Student>(`api/student/update/${id}`, student);
+  }
+
+  getAllSubject(): Observable<Subject[]> {
+    return this.http.get<Subject[]>('api/subject/all');
+  }
+
+  addSubject(subject: Subject): Observable<any> {
+    return this.http.post('api/subject/add', subject);
+  }
+  removeSubject(id: number): Observable<any> {
+    return this.http.delete(`api/subject/delete/${id}`);
+  }
+  getSubject(id: number): Observable<Subject> {
+    return this.http.get<Subject>(`api/subject/${id}`);
+  }
+  updateSubject(id: number, subject: Subject): Observable<Subject> {
+    return this.http.put<Subject>(`api/subject/update/${id}`, subject);
   }
 
 }

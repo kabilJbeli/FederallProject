@@ -47,6 +47,9 @@ import { HttpClient } from '@angular/common/http';
 import { AddStudentComponent } from './add-student/add-student.component';
 import { StudentListComponent } from './student-list/student-list.component';
 import { UpdateStudentComponent } from './update-student/update-student.component';
+import { UpdateSubjectComponent } from './update-subject/update-subject.component';
+import { SubjectListComponent } from './subject-list/subject-list.component';
+import { AddSubjectComponent } from './add-subject/add-subject.component';
 
 @NgModule({
   declarations: [
@@ -66,6 +69,9 @@ import { UpdateStudentComponent } from './update-student/update-student.componen
     AddStudentComponent,
     StudentListComponent,
     UpdateStudentComponent,
+    UpdateSubjectComponent,
+    SubjectListComponent,
+    AddSubjectComponent,
   ],
   imports: [
     BrowserModule,

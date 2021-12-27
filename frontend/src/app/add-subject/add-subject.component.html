@@ -1,0 +1,28 @@
+<div class="container">
+    <form [formGroup]="formGroup" (ngSubmit)="onSubmit(formGroup.value)" class="form" *ngIf="!spinner">
+
+        <mat-form-field class="form-element">
+            <mat-label>{{ 'subject.name' | translate }}</mat-label>
+            <input matInput formControlName="subject_NAME">
+        </mat-form-field>
+
+        <mat-form-field class="form-element">
+            <mat-label>{{ 'subject.credit' | translate }}</mat-label>
+            <input matInput formControlName="credit">
+        </mat-form-field>
+
+        <mat-form-field class="form-element">
+            <mat-label>{{ 'subject.courseload' | translate }}</mat-label>
+            <input matInput type="number" formControlName="course_LOAD">
+        </mat-form-field>
+
+        <div class="form-element">
+            <button mat-raised-button color="primary" type="submit" class="button" [disabled]="!formGroup.valid">{{
+                'subject.addSubject' | translate }}</button>
+        </div>
+
+    </form>
+    <div *ngIf="spinner" class="w-100 d-flex justify-content-center align-items-center mt-5">
+        <mat-spinner></mat-spinner>
+    </div>
+</div>

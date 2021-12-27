@@ -27,6 +27,14 @@
     "addStudent": "Add Student",
     "updateStudent": "Update Student"
   },
+  "subject": {
+    "id": "Subject ID",
+    "name": "Subject Name",
+    "credit": "Credit",
+    "courseload": "Course Load",
+    "addSubject": "Add Subject",
+    "updateSubject": "Update Subject"
+  },
   "group": {
     "name": "Group Name",
     "major": "Major",

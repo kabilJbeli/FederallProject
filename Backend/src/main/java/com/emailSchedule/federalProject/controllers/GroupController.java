@@ -17,7 +17,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.emailSchedule.federalProject.entities.Groups;
-import com.emailSchedule.federalProject.services.GroupServive;
+import com.emailSchedule.federalProject.services.GroupService;
 
 @RestController
 @CrossOrigin(origins = "*", allowedHeaders = "*")
@@ -25,7 +25,7 @@ import com.emailSchedule.federalProject.services.GroupServive;
 public class GroupController {
 
 	@Autowired
-	private GroupServive service;
+	private GroupService service;
 
 	@GetMapping("/findall")
 	public List<Groups> getAll() {
