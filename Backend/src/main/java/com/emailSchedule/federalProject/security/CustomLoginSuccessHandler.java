@@ -15,6 +15,7 @@ public class CustomLoginSuccessHandler {
 	PasswordEncoder encoder;
     @Autowired
     private IUserservice userService;
+    
     @Transactional
     public String onAuthenticationSuccess(String username, String password) throws Exception {
     	User user =  userService.findUserBylogin(username);

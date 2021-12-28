@@ -1,6 +1,5 @@
 package com.emailSchedule.federalProject.controllers;
 
-import java.util.Date;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -14,12 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.emailSchedule.federalProject.entities.User;
 import com.emailSchedule.federalProject.payload.response.MessageResponse;
-import com.emailSchedule.federalProject.security.CustomLoginSuccessHandler;
-import com.emailSchedule.federalProject.security.jwt.JwtUtils;
 import com.emailSchedule.federalProject.services.IUserservice;
-import com.emailSchedule.federalProject.services.UserService;
-
-
 
 @CrossOrigin(origins = "*", maxAge = 3600)
 @RestController
@@ -27,16 +21,12 @@ import com.emailSchedule.federalProject.services.UserService;
 public class AuthController {
 	@Autowired
 	AuthenticationManager authenticationManager;
-	@Autowired
-	CustomLoginSuccessHandler customLoginSuccessHandler;
+
 	@Autowired
 	IUserservice iuserservice;
 
 	@Autowired
 	PasswordEncoder encoder;
-
-	@Autowired
-	JwtUtils jwtUtils;
 
 
 	@PostMapping("/signup")

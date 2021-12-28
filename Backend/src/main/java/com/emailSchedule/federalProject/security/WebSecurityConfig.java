@@ -12,6 +12,7 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
 import com.emailSchedule.federalProject.security.jwt.AuthTokenFilter;
 import com.emailSchedule.federalProject.security.services.UserDetailsServiceImpl;
@@ -48,13 +49,14 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
-//        http
-//        .authorizeRequests()
-//        .anyRequest().authenticated()
-//        .and()
-//        .formLogin().disable();
-        
-        http.csrf().disable();
+        http
+        .authorizeRequests()
+        .anyRequest().authenticated()
+        .and()
+        .formLogin().defaultSuccessUrl("http://Localhost:4200").and().rememberMe();
+		http.addFilterBefore(authenticationJwtTokenFilter(), UsernamePasswordAuthenticationFilter.class);
+
+//        http.csrf().disable();
 	}
 	
 	@Override
