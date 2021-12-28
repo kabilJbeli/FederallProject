@@ -24,7 +24,6 @@ public interface IUserservice {
 	boolean unlockWhenTimeExpired(User user);
 	void resetFailedAttempts(String email);
 	void lock(User user);
-	public User findUserByResetToken(String token);
 	void updateUserr(User u, int id);
 	List<User> findUserSearch(String pattern);
 

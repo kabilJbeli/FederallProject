@@ -30,7 +30,7 @@ public interface UserRepository extends JpaRepository<User, Integer> {
 	@Query("UPDATE User u SET u.failedAttempt = ?1 WHERE u.login = ?2")
     @Modifying
     public void updateFailedAttempts(int failAttempts, String login);
-	User findUserByresettoken(String login);
+	
 	
 	@Query("SELECT u FROM User u WHERE u.firstName LIKE %?1% OR u.login LIKE %?1% ")
 	List<User> findUserSearch(String pattern);

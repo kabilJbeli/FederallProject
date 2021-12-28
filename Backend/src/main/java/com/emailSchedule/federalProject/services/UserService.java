@@ -141,12 +141,6 @@ public class UserService implements IUserservice {
 	}
 
 	@Override
-	public User findUserByResetToken(String login) {
-		// TODO Auto-generated method stub
-		return userRepository.findUserByresettoken(login);
-	}
-
-	@Override
 	public void updateUserr(User u, int id) {
 
 		User user = userRepository.findByidUser(id);

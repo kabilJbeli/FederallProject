@@ -12,6 +12,7 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
+
 import com.emailSchedule.federalProject.security.jwt.AuthTokenFilter;
 import com.emailSchedule.federalProject.security.services.UserDetailsServiceImpl;
 
@@ -47,11 +48,19 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
-
+//        http
+//        .authorizeRequests()
+//        .anyRequest().authenticated()
+//        .and()
+//        .formLogin().disable();
+        
+        http.csrf().disable();
 	}
 	
 	@Override
 	public void configure(WebSecurity web) throws Exception {
+		web.ignoring().regexMatchers("^(/User/Access/).*");
+		web.ignoring().regexMatchers("^(/Role/).*");
 	}
 
 }

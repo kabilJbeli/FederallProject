@@ -1,8 +1,6 @@
 package com.emailSchedule.federalProject.entities;
 
-import java.io.Serializable;
 import java.util.Date;
-
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -11,180 +9,132 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 @Entity
-@Table(name = "USER")
-public class User implements Serializable {
+@JsonIgnoreProperties({ "hibernateLazyInitializer" })
+public class User {
 
-	private static final long serialVersionUID = 1L;
-
-	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
-	@Column(name = "id")
+	@Column(name = "USERID")
 	private int idUser;
-	@Column(name = "firstName")
+	@Column(name = "FIRSTNAME")
 	private String firstName;
-	@Column(name = "lastName")
+	@Column(name = "LASTNAME")
 	private String lastName;
-	@Column(name = "telNum")
+	@Column(name = "TELNUM")
 	private String telNum;
 	@Temporal(TemporalType.DATE)
-	@Column(name = "birthdate")
+	@Column(name = "BIRTHDATE")
 	private Date birthdate;
-	@Column(name = "address")
+	@Column(name = "ADDRESS")
 	private String address;
-	@Column(name = "mail")
+	@Column(name = "EMAIL")
 	private String mail;
-	@Column(name = "login")
+	@Column(name = "LOGIN")
 	private String login;
-	@Column(name = "password")
+	@Column(name = "PASSWORD")
 	private String password;
-
-	@Column(name = "status")
-	private boolean status;
-
-	private Role role;
+	@Column(name = "VALID", columnDefinition = "int default 1")
 	boolean valid;
-	@Column(name = "accountLocked", columnDefinition = "boolean default false")
+	@Column(name = "ACCOUNTLOCKED", columnDefinition = "boolean default false")
 	private boolean accountNonLocked;
-	@Column(name = "failedAttempt", columnDefinition = "int default 0")
+	@Column(name = "FAILEDATTEMPT", columnDefinition = "int default 0")
 	private int failedAttempt;
-	@Column(name = "lockTime")
+	@Column(name = "LOCKTIME")
 	private Date lockTime;
-	@Column(name = "resettoken")
-	private String resettoken;
-
+	private Role roleuser;
+	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	public int getIdUser() {
 		return idUser;
 	}
-
 	public void setIdUser(int idUser) {
 		this.idUser = idUser;
 	}
-
 	public String getFirstName() {
 		return firstName;
 	}
-
 	public void setFirstName(String firstName) {
 		this.firstName = firstName;
 	}
-
 	public String getLastName() {
 		return lastName;
 	}
-
 	public void setLastName(String lastName) {
 		this.lastName = lastName;
 	}
-
 	public String getTelNum() {
 		return telNum;
 	}
-
 	public void setTelNum(String telNum) {
 		this.telNum = telNum;
 	}
-
 	public Date getBirthdate() {
 		return birthdate;
 	}
-
 	public void setBirthdate(Date birthdate) {
 		this.birthdate = birthdate;
 	}
-
 	public String getAddress() {
 		return address;
 	}
-
 	public void setAddress(String address) {
 		this.address = address;
 	}
-
 	public String getMail() {
 		return mail;
 	}
-
 	public void setMail(String mail) {
 		this.mail = mail;
 	}
-
 	public String getLogin() {
 		return login;
 	}
-
 	public void setLogin(String login) {
 		this.login = login;
 	}
-
 	public String getPassword() {
 		return password;
 	}
-
 	public void setPassword(String password) {
 		this.password = password;
 	}
-
-	public boolean isStatus() {
-		return status;
-	}
-
-	public void setStatus(boolean status) {
-		this.status = status;
-	}
-
-	@ManyToOne(cascade = CascadeType.DETACH)
-	@JoinColumn(name = "role")
-	public Role getRole() {
-		return role;
-	}
-
-	public void setRole(Role role) {
-		this.role = role;
-	}
-
 	public boolean isValid() {
 		return valid;
 	}
-
 	public void setValid(boolean valid) {
 		this.valid = valid;
 	}
-
 	public boolean isAccountNonLocked() {
 		return accountNonLocked;
 	}
-
 	public void setAccountNonLocked(boolean accountNonLocked) {
 		this.accountNonLocked = accountNonLocked;
 	}
-
 	public int getFailedAttempt() {
 		return failedAttempt;
 	}
-
 	public void setFailedAttempt(int failedAttempt) {
 		this.failedAttempt = failedAttempt;
 	}
-
 	public Date getLockTime() {
 		return lockTime;
 	}
-
 	public void setLockTime(Date lockTime) {
 		this.lockTime = lockTime;
 	}
-
-	public String getResettoken() {
-		return resettoken;
+	
+	@ManyToOne(cascade = CascadeType.DETACH)
+	@JoinColumn(name = "ROLEUSER")
+	public Role getRole() {
+		return roleuser;
 	}
-
-	public void setResettoken(String resettoken) {
-		this.resettoken = resettoken;
+	public void setRole(Role role) {
+		this.roleuser = role;
 	}
-
+	
 }
