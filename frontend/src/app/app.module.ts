@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import {APP_INITIALIZER, NgModule} from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FullCalendarModule } from '@fullcalendar/angular';
 
@@ -53,6 +53,8 @@ import { UpdateClassRoomComponent } from './update-class-room/update-class-room.
 import { UpdateSubjectComponent } from './update-subject/update-subject.component';
 import { SubjectListComponent } from './subject-list/subject-list.component';
 import { AddSubjectComponent } from './add-subject/add-subject.component';
+import { initializer } from './app-init';
+import {KeycloakAngularModule, KeycloakService} from "keycloak-angular";
 
 @NgModule({
   declarations: [
@@ -83,11 +85,11 @@ import { AddSubjectComponent } from './add-subject/add-subject.component';
     BrowserModule,
     FullCalendarModule,
     AccordionModule,
+    KeycloakAngularModule,
     HttpClientModule,
     SharedModule,
     ReactiveFormsModule,
     HighchartsChartModule,
-
     MaterialModule,
     BrowserAnimationsModule,
     AppRoutingModule,
@@ -112,6 +114,12 @@ import { AddSubjectComponent } from './add-subject/add-subject.component';
     EventService,
     AuthService,
     { provide: JWT_OPTIONS, useValue: JWT_OPTIONS },
+    {
+      provide: APP_INITIALIZER,
+      useFactory: initializer,
+      deps: [KeycloakService],
+      multi: true,
+    },
     JwtHelperService,
   ],
   bootstrap: [AppComponent],

@@ -1,5 +1,4 @@
 import { Routes, CanActivate } from '@angular/router';
-import { AuthGuardService as AuthGuard } from './auth-guard.service';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { SignInComponent } from './sign-in/sign-in.component';
 import { TeacherListComponent } from './teacher-list/teacher-list.component';
@@ -18,6 +17,7 @@ import { ClassRoomListComponent } from './class-room-list/class-room-list.compon
 import { AddClassRoomComponent } from './add-class-room/add-class-room.component';
 import { UpdateClassRoomComponent } from './update-class-room/update-class-room.component';
 import { SubjectListComponent } from './subject-list/subject-list.component';
+import {AuthGuard} from "./auth-guard";
 
 export const ROUTES: Routes = [
   { path: 'sign-in', component: SignInComponent },
@@ -107,5 +107,5 @@ export const ROUTES: Routes = [
     component: UpdateGroupComponent,
     canActivate: [AuthGuard],
   },
-  { path: '**', redirectTo: '/sign-in' },
+
 ];

@@ -1,0 +1,4 @@
+1) How to start Keycloak (go to the bin folder and then launch this command on a CMD):
+standalone.bat --server-config=standalone.xml
+2) After successfully starting the server go to this hostname: http://localhost:8080/auth/admin/master/console/
+3) Import the realm-export.json file

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MenuItem } from 'primeng/api';
 import { Router } from '@angular/router';
+import {KeycloakService} from "keycloak-angular";
 @Component({
   selector: 'app-menu',
   templateUrl: './menu.component.html',
@@ -9,7 +10,7 @@ import { Router } from '@angular/router';
 export class MenuComponent implements OnInit {
   public items: MenuItem[];
 
-  constructor(private route: Router) {
+  constructor(private route: Router,private keycloakService: KeycloakService) {
     this.items = [
       {
         icon: 'pi pi-fw pi-home',
@@ -127,7 +128,8 @@ export class MenuComponent implements OnInit {
         label: 'Logout',
         icon: 'pi pi-fw pi-power-off',
         command: (event: any) => {
-          this.route.navigate(['/sign-in']);
+          this.keycloakService.logout();
+         // this.route.navigate(['/sign-in']);
           localStorage.setItem('signedIn', 'false');
         },
       },
