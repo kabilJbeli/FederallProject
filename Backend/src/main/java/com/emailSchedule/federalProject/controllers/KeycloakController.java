@@ -65,19 +65,20 @@ private Keycloak getKeycloakInstance() {
 	    credentials.setTemporary(false);
 	    UserRepresentation userRepresentation = new UserRepresentation();
 	    userRepresentation.setUsername(username);
+	    userRepresentation.setEmail(username);
 	    userRepresentation.setFirstName(firstname);
 	    userRepresentation.setLastName(lastname);
-	    userRepresentation.setEmail(email);
 	    userRepresentation.setEnabled(true);
 	    userRepresentation.setCredentials(Arrays.asList(credentials));    	    
-	    List<String> roles=new ArrayList<String>();
-	    roles.add("Employee-front");
+	    List<String> roles=new ArrayList<String>();	   
+	  if(ismanager) {
+		  roles.add("front-manager");
+		  Map<String, List<String>> clientRoles = new HashMap<>();
+		    clientRoles.put("federateur",Arrays.asList("front-manager"));
+		    userRepresentation.setClientRoles(clientRoles);
+	  }	    
 	  
-	    Map<String, List<String>> clientRoles = new HashMap<>();
-	    clientRoles.put("federateur-front",roles);
-	    userRepresentation.setClientRoles(clientRoles);
 	    Map<String, List<String>> attributes = new HashMap<>();
-	    attributes.put(env.getProperty("keycloak.realm"), Arrays.asList("A test user"));
 	    userRepresentation.setAttributes(attributes);
 	    Keycloak keycloak = getKeycloakInstance();
 	    Response result = keycloak.realm(env.getProperty("keycloak.realm")).users().create(userRepresentation);

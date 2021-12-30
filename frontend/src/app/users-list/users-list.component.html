@@ -7,6 +7,7 @@
         <th>{{ 'teacher.lastName' | translate }}</th>
         <th>{{ 'teacher.email' | translate }}</th>
         <th>{{ 'teacher.birthDate' | translate }}</th>
+        <th>Is Manager</th>
         <th>{{ 'actions' | translate }}</th>
       </tr>
     </ng-template>
@@ -16,6 +17,7 @@
         <td>{{user.firstName}}</td>
         <td>{{user.lastName}}</td>
         <td>{{user.email}}</td>
+        <td>{{user.username}}</td>
         <td>{{user.username}}</td>
         <td>
           <button mat-button (click)="removeUser(user)">
