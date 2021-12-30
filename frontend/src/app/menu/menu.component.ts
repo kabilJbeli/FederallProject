@@ -129,8 +129,6 @@ export class MenuComponent implements OnInit {
         icon: 'pi pi-fw pi-power-off',
         command: (event: any) => {
           this.keycloakService.logout();
-         // this.route.navigate(['/sign-in']);
-          localStorage.setItem('signedIn', 'false');
         },
       },
     ];

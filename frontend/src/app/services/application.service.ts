@@ -100,4 +100,10 @@ export class ApplicationService {
     return this.http.put<Subject>(`api/subject/update/${id}`, subject);
   }
 
+  createUser(user: any): Observable<any> {
+  return this.http.post(`api/keycloak/user?username=${user.username}&email=${user.email}&password=${user.password}`,{});
+ //  return this.http.get(`api/keycloak/users`);
+
+  }
+
 }
