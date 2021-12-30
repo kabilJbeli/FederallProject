@@ -9,6 +9,7 @@
   "yes": "Yes",
   "modalDeleteValidationMessage": "Are You Sure You Want To Delete This",
   "modalUpdateValidationMessage": "Are You Sure You Want To Update This",
+  "noRecordsFound": "No Records Found!",
   "teacher": {
     "cin": "Cin",
     "name": "Name",
@@ -33,7 +34,8 @@
     "email": "Email",
     "password": "Password",
     "addUser": "Add User",
-    "isManager": "Is Administrator"
+    "isManager": "Is Administrator",
+    "username": "User Name"
   },
   "subject": {
     "id": "Subject ID",

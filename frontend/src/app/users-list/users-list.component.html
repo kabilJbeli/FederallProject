@@ -2,22 +2,18 @@
   <p-table [paginator]="true" [rows]="5" [rowsPerPageOptions]="[5,10,15,20]" [value]="Users" responsiveLayout="scroll"  *ngIf="!spinner">
     <ng-template pTemplate="header">
       <tr>
-        <th>{{ 'code' | translate }}</th>
-        <th>{{ 'teacher.name' | translate }}</th>
-        <th>{{ 'teacher.lastName' | translate }}</th>
-        <th>{{ 'teacher.email' | translate }}</th>
-        <th>{{ 'teacher.birthDate' | translate }}</th>
-        <th>Is Manager</th>
+        <th>{{ 'user.name' | translate }}</th>
+        <th>{{ 'user.lastName' | translate }}</th>
+        <th>{{ 'user.email' | translate }}</th>
+        <th>{{ 'user.username' | translate }}</th>
         <th>{{ 'actions' | translate }}</th>
       </tr>
     </ng-template>
     <ng-template pTemplate="body" let-user>
       <tr>
-        <td>{{user.id}}</td>
         <td>{{user.firstName}}</td>
         <td>{{user.lastName}}</td>
         <td>{{user.email}}</td>
-        <td>{{user.username}}</td>
         <td>{{user.username}}</td>
         <td>
           <button mat-button (click)="removeUser(user)">
@@ -29,7 +25,7 @@
     <ng-template pTemplate="emptymessage" let-columns>
       <tr>
         <td class="border-0" [attr.colspan]="columns.length">
-          No records found
+         {{'noRecordsFound' | translate}}
         </td>
       </tr>
     </ng-template>
