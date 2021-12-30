@@ -55,6 +55,8 @@ import { SubjectListComponent } from './subject-list/subject-list.component';
 import { AddSubjectComponent } from './add-subject/add-subject.component';
 import { initializer } from './app-init';
 import {KeycloakAngularModule, KeycloakService} from "keycloak-angular";
+import { AddUserComponent } from './add-user/add-user.component';
+import { UsersListComponent } from './users-list/users-list.component';
 
 @NgModule({
   declarations: [
@@ -80,6 +82,8 @@ import {KeycloakAngularModule, KeycloakService} from "keycloak-angular";
     UpdateSubjectComponent,
     SubjectListComponent,
     AddSubjectComponent,
+    AddUserComponent,
+    UsersListComponent,
   ],
   imports: [
     BrowserModule,

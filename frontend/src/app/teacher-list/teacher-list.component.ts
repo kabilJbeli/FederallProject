@@ -21,7 +21,6 @@ export class TeacherListComponent implements OnInit {
 
   ngOnInit(): void {
     this.getAll();
- //   this.service.createUser({email:"k@gmail.com",username:'kabil',password:'test'}).subscribe();
   }
 
   getAll(): void {

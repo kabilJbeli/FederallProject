@@ -51,7 +51,11 @@ private Keycloak getKeycloakInstance() {
 }
 	
 	@PostMapping("/user")
-	public ResponseEntity<String> createUser(@RequestParam String username,@RequestParam String email,@RequestParam String password) {
+	public ResponseEntity<String> createUser(@RequestParam String username,
+			@RequestParam String email,
+			@RequestParam String firstname,
+			@RequestParam String  lastname,
+			@RequestParam String password,@RequestParam Boolean ismanager) {
 	    if (StringUtils.isEmpty(username) || StringUtils.isEmpty(password) || StringUtils.isEmpty(email)) {
 	        return ResponseEntity.badRequest().body("Empty username or password");
 	    }
@@ -61,13 +65,15 @@ private Keycloak getKeycloakInstance() {
 	    credentials.setTemporary(false);
 	    UserRepresentation userRepresentation = new UserRepresentation();
 	    userRepresentation.setUsername(username);
-	    userRepresentation.setFirstName(username);
-	    userRepresentation.setLastName(username);
+	    userRepresentation.setFirstName(firstname);
+	    userRepresentation.setLastName(lastname);
 	    userRepresentation.setCredentials(Arrays.asList(credentials));
 	    userRepresentation.setEnabled(true);
 	    userRepresentation.setEmail(email);
+	    
 	    List<String> roles=new ArrayList<String>();
 	    roles.add("Employee-front");
+	  
 	    Map<String, List<String>> clientRoles = new HashMap<>();
 	    clientRoles.put("federateur-front",roles);
 	    userRepresentation.setClientRoles(clientRoles);
@@ -107,7 +113,7 @@ private Keycloak getKeycloakInstance() {
 	}
 	
 	@DeleteMapping("/user")
-	public void deleteUser(String username) {
+	public void deleteUser(@RequestParam String username) {
 	    Keycloak keycloak = getKeycloakInstance();
 	        UsersResource users = keycloak.realm(env.getProperty("keycloak.realm")).users();
 	        users.search(username).stream()

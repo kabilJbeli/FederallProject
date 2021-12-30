@@ -124,14 +124,38 @@ export class MenuComponent implements OnInit {
           },
         ],
       },
-      {
-        label: 'Logout',
-        icon: 'pi pi-fw pi-power-off',
-        command: (event: any) => {
-          this.keycloakService.logout();
-        },
-      },
+
     ];
+    if(keycloakService.getUserRoles(true).includes('front-manager')){
+      this.items.push(
+        {
+          label: 'Users',
+          items: [
+            {
+              label: 'Users List',
+              command: (event: any) => {
+                this.route.navigate(['/users-list']);
+              },
+            },
+            {
+              label: 'Add User',
+              command: (event: any) => {
+                this.route.navigate(['/add-user']);
+              },
+            },
+          ],
+        }
+      )
+    }
+    this.items.push(
+    {
+      label: 'Logout',
+        icon: 'pi pi-fw pi-power-off',
+      command: (event: any) => {
+      this.keycloakService.logout();
+    },
+    }
+    );
   }
 
   ngOnInit(): void {}

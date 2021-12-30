@@ -1,0 +1,31 @@
+<div class="container mt-5">
+  <p-table [value]="Users" responsiveLayout="scroll"  *ngIf="!spinner">
+    <ng-template pTemplate="header">
+      <tr>
+        <th>{{ 'code' | translate }}</th>
+        <th>{{ 'teacher.name' | translate }}</th>
+        <th>{{ 'teacher.lastName' | translate }}</th>
+        <th>{{ 'teacher.email' | translate }}</th>
+        <th>{{ 'teacher.birthDate' | translate }}</th>
+        <th>{{ 'actions' | translate }}</th>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-user>
+      <tr>
+        <td>{{user.id}}</td>
+        <td>{{user.firstName}}</td>
+        <td>{{user.lastName}}</td>
+        <td>{{user.email}}</td>
+        <td>{{user.username}}</td>
+        <td>
+          <button mat-button (click)="removeUser(user)">
+            {{ 'remove' | translate }}
+          </button>
+        </td>
+      </tr>
+    </ng-template>
+  </p-table>
+  <div  *ngIf="spinner" class="w-100 d-flex justify-content-center align-items-center mt-5">
+    <mat-spinner></mat-spinner>
+  </div>
+</div>

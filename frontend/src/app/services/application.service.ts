@@ -7,6 +7,7 @@ import { Major } from '../models/Major';
 import { Student } from '../models/student';
 import { ClassRoom } from '../models/classRoom';
 import { Subject } from '../models/subject';
+import {User} from "../models/user";
 
 @Injectable({
   providedIn: 'root',
@@ -100,10 +101,14 @@ export class ApplicationService {
     return this.http.put<Subject>(`api/subject/update/${id}`, subject);
   }
 
-  createUser(user: any): Observable<any> {
-  return this.http.post(`api/keycloak/user?username=${user.username}&email=${user.email}&password=${user.password}`,{});
- //  return this.http.get(`api/keycloak/users`);
-
+  createUser(user: User): Observable<any> {
+ return this.http.post(`api/keycloak/user?username=${user.email}&email=
+ ${user.email}&password=${user.password}&firstname=${user.firstName}&lastname=${user.lastName}&ismanager=${user.isManager}`,{});
   }
-
+  removeUser(user: User): Observable<any> {
+    return this.http.delete(`api/keycloak/user?username=${user.email}`);
+  }
+  getUsers(): Observable<User[]> {
+    return this.http.get<User[]>(`api/keycloak/users`);
+  }
 }

@@ -18,6 +18,8 @@ import { AddClassRoomComponent } from './add-class-room/add-class-room.component
 import { UpdateClassRoomComponent } from './update-class-room/update-class-room.component';
 import { SubjectListComponent } from './subject-list/subject-list.component';
 import {AuthGuard} from "./auth-guard";
+import {AddUserComponent} from "./add-user/add-user.component";
+import {UsersListComponent} from "./users-list/users-list.component";
 
 export const ROUTES: Routes = [
   { path: 'sign-in', component: SignInComponent },
@@ -95,6 +97,18 @@ export const ROUTES: Routes = [
     path: 'add-group',
     component: AddGroupComponent,
     canActivate: [AuthGuard],
+  },
+  {
+    path: 'users-list',
+    component: UsersListComponent,
+    canActivate: [AuthGuard],
+    data: { roles: ['front-manager'] },
+  },
+  {
+    path: 'add-user',
+    component: AddUserComponent,
+    canActivate: [AuthGuard],
+    data: { roles: ['front-manager'] },
   },
   {
     path: 'schedule',

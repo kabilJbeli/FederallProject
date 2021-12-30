@@ -27,6 +27,14 @@
     "addStudent": "Add Student",
     "updateStudent": "Update Student"
   },
+  "user": {
+    "name": "Name",
+    "lastName": "Last Name",
+    "email": "Email",
+    "password": "Password",
+    "addUser": "Add User",
+    "isManager": "Is Administrator"
+  },
   "subject": {
     "id": "Subject ID",
     "name": "Subject Name",
