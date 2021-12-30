@@ -9,7 +9,6 @@ import java.util.Optional;
 
 import javax.ws.rs.core.Response;
 
-import org.keycloak.adapters.springboot.KeycloakSpringBootProperties;
 import org.keycloak.admin.client.Keycloak;
 import org.keycloak.admin.client.resource.UserResource;
 import org.keycloak.admin.client.resource.UsersResource;
@@ -59,6 +58,7 @@ private Keycloak getKeycloakInstance() {
 	    if (StringUtils.isEmpty(username) || StringUtils.isEmpty(password) || StringUtils.isEmpty(email)) {
 	        return ResponseEntity.badRequest().body("Empty username or password");
 	    }
+
 	    CredentialRepresentation credentials = new CredentialRepresentation();
 	    credentials.setType(CredentialRepresentation.PASSWORD);
 	    credentials.setValue(password);
@@ -67,10 +67,9 @@ private Keycloak getKeycloakInstance() {
 	    userRepresentation.setUsername(username);
 	    userRepresentation.setFirstName(firstname);
 	    userRepresentation.setLastName(lastname);
-	    userRepresentation.setCredentials(Arrays.asList(credentials));
-	    userRepresentation.setEnabled(true);
 	    userRepresentation.setEmail(email);
-	    
+	    userRepresentation.setEnabled(true);
+	    userRepresentation.setCredentials(Arrays.asList(credentials));    	    
 	    List<String> roles=new ArrayList<String>();
 	    roles.add("Employee-front");
 	  

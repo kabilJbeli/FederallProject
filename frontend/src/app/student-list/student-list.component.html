@@ -1,5 +1,5 @@
 <div class="container mt-5">
-    <p-table [value]="Students" responsiveLayout="scroll"  *ngIf="!spinner">
+    <p-table    [paginator]="true" [rows]="5" [rowsPerPageOptions]="[5,10,15,20]"  [value]="Students" responsiveLayout="scroll"  *ngIf="!spinner">
       <ng-template pTemplate="header">
         <tr>
           <th>{{ 'code' | translate }}</th>
@@ -11,7 +11,7 @@
           <th>{{ 'actions' | translate }}</th>
         </tr>
       </ng-template>
-      <ng-template pTemplate="body" let-student>
+      <ng-template pTemplate="body" let-student >
         <tr>
           <td>{{student.student_ID}}</td>
           <td>{{student.cin}}</td>
@@ -31,8 +31,17 @@
             </button>
           </td>
         </tr>
+
+      </ng-template>
+      <ng-template pTemplate="emptymessage" let-columns>
+        <tr>
+          <td class="border-0" [attr.colspan]="columns.length">
+            No records found
+          </td>
+        </tr>
       </ng-template>
     </p-table>
+
       <div  *ngIf="spinner" class="w-100 d-flex justify-content-center align-items-center mt-5">
         <mat-spinner></mat-spinner>
       </div>

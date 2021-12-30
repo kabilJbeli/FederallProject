@@ -1,5 +1,5 @@
 <div class="container mt-5">
-<p-table [value]="Teachers" responsiveLayout="scroll"  *ngIf="!spinner">
+<p-table  [paginator]="true" [rows]="5" [rowsPerPageOptions]="[5,10,15,20]"  [value]="Teachers" responsiveLayout="scroll"  *ngIf="!spinner">
   <ng-template pTemplate="header">
     <tr>
       <th>{{ 'code' | translate }}</th>
@@ -29,6 +29,13 @@
         <button mat-button (click)="goToSchedule(teacher.teacher_ID)">
           {{ 'consultSchedule' | translate }}
         </button>
+      </td>
+    </tr>
+  </ng-template>
+  <ng-template pTemplate="emptymessage" let-columns>
+    <tr>
+      <td class="border-0" [attr.colspan]="columns.length">
+        No records found
       </td>
     </tr>
   </ng-template>
