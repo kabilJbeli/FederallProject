@@ -99,11 +99,11 @@ public class KeycloakController {
 			userRepresentation.setFirstName(firstname);
 			userRepresentation.setLastName(lastname);
 			userRepresentation.setEmail(username);
-			CredentialRepresentation credentials = new CredentialRepresentation();
+		/*	CredentialRepresentation credentials = new CredentialRepresentation();
 			credentials.setType(CredentialRepresentation.PASSWORD);
 			credentials.setValue(password);
 			credentials.setTemporary(false);
-			userRepresentation.setCredentials(Arrays.asList(credentials));
+			userRepresentation.setCredentials(Arrays.asList(credentials));*/
 			userResource.update(userRepresentation);
 			return ResponseEntity.ok().body(userRepresentation);
 		} else {

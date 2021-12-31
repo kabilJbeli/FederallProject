@@ -1,6 +1,5 @@
 <div class="container">
   <form [formGroup]="formGroup" (ngSubmit)="onSubmit(formGroup.value)" class="form" *ngIf="!spinner">
-
     <mat-form-field class="form-element">
       <mat-label>{{ 'user.name' | translate }}</mat-label>
       <input matInput  formControlName="firstName">
@@ -11,14 +10,13 @@
       <input matInput  formControlName="lastName">
     </mat-form-field>
 
-    <mat-form-field class="form-element">
+  <mat-form-field class="form-element">
       <mat-label>{{ 'user.password' | translate }}</mat-label>
-      <input placeholder="******" matInput  type="password"  formControlName="password">
+      <input placeholder="******" matInput  type="password"  formControlName="password" readonly>
     </mat-form-field>
     <div class="form-element">
       <button mat-raised-button color="primary" type="submit" class="button" [disabled]="!formGroup.valid">{{ 'user.updateProfile' | translate }}</button>
     </div>
-
   </form>
   <div  *ngIf="spinner" class="w-100 d-flex justify-content-center align-items-center mt-5">
     <mat-spinner></mat-spinner>

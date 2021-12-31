@@ -24,7 +24,7 @@ export class UpdateProfileInformationComponent implements OnInit {
     this.formGroup = this.formBuilder.group({
       firstName: [userInfo.firstName, Validators.required],
       lastName: [userInfo.lastName, [Validators.required]],
-      password: [null, [Validators.required]],
+      password: ['******', []],
       email: [userInfo.username, []],
     });
   }
