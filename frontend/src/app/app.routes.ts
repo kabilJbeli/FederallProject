@@ -121,5 +121,5 @@ export const ROUTES: Routes = [
     component: UpdateGroupComponent,
     canActivate: [AuthGuard],
   },
-
+  {path: '**', redirectTo: '/dashboard'}
 ];
