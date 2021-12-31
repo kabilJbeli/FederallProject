@@ -28,8 +28,7 @@ export class UsersListComponent implements OnInit {
   getAll(): void {
     this.spinner = true;
     this.service.getUsers().subscribe((result: User[]) => {
-      this.spinner = false;
-      this.Users = result;
+      this.spinner = false;this.Users = result.filter((user:User)=>user.username !=='manager' && user.username !=='helpdesk');
     });
   }
   removeUser(user: User) {

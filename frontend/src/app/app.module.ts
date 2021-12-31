@@ -15,7 +15,6 @@ import { AccordionModule } from 'primeng/accordion';
 import { SharedModule } from './shared-module/shared-module.module';
 import { ReactiveFormsModule } from '@angular/forms';
 import { DashboardComponent } from './dashboard/dashboard.component';
-import { SignInComponent } from './sign-in/sign-in.component';
 import { HttpClientModule } from '@angular/common/http';
 import { RoleGuardService } from './role-guard.service';
 import { AuthGuardService } from './auth-guard.service';
@@ -65,7 +64,6 @@ import { UsersListComponent } from './users-list/users-list.component';
     MenuComponent,
     HeaderComponent,
     DashboardComponent,
-    SignInComponent,
     AddTeacherComponent,
     UpdateTeacherComponent,
     ActionModalComponent,

@@ -1,6 +1,5 @@
 import { Routes, CanActivate } from '@angular/router';
 import { DashboardComponent } from './dashboard/dashboard.component';
-import { SignInComponent } from './sign-in/sign-in.component';
 import { TeacherListComponent } from './teacher-list/teacher-list.component';
 import { AddTeacherComponent } from './add-teacher/add-teacher.component';
 import { AddSubjectComponent } from './add-subject/add-subject.component';
@@ -22,7 +21,6 @@ import {AddUserComponent} from "./add-user/add-user.component";
 import {UsersListComponent} from "./users-list/users-list.component";
 
 export const ROUTES: Routes = [
-  { path: 'sign-in', component: SignInComponent },
   {
     path: 'teachers-list',
     component: TeacherListComponent,
