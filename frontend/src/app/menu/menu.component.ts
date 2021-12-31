@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { MenuItem } from 'primeng/api';
 import { Router } from '@angular/router';
 import {KeycloakService} from "keycloak-angular";
+import {User} from "../models/user";
 @Component({
   selector: 'app-menu',
   templateUrl: './menu.component.html',
@@ -11,6 +12,7 @@ export class MenuComponent implements OnInit {
   public items: MenuItem[];
 
   constructor(private route: Router,private keycloakService: KeycloakService) {
+
     this.items = [
       {
         icon: 'pi pi-fw pi-home',
@@ -147,16 +149,27 @@ export class MenuComponent implements OnInit {
         }
       )
     }
-    this.items.push(
-    {
-      label: 'Logout',
-        icon: 'pi pi-fw pi-power-off',
-      command: (event: any) => {
-      this.keycloakService.logout();
-    },
-    }
-    );
+
+
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    const userInfo:any=this.keycloakService.getKeycloakInstance().profile;
+    this.items.push(
+      {
+        label: userInfo.firstName+' '+userInfo.lastName,
+        icon: 'pi pi-fw pi-user',
+        items: [
+          {
+            label: 'Logout',
+            icon: 'pi pi-fw pi-power-off',
+            command: (event: any) => {
+              this.keycloakService.logout();
+            },
+          }
+
+        ]
+      }
+    );
+  }
 }

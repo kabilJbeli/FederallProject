@@ -53,6 +53,7 @@ import { initializer } from './app-init';
 import {KeycloakAngularModule, KeycloakService} from "keycloak-angular";
 import { AddUserComponent } from './add-user/add-user.component';
 import { UsersListComponent } from './users-list/users-list.component';
+import { ErrorMessageComponent } from './error-message/error-message.component';
 
 @NgModule({
   declarations: [
@@ -79,6 +80,7 @@ import { UsersListComponent } from './users-list/users-list.component';
     AddSubjectComponent,
     AddUserComponent,
     UsersListComponent,
+    ErrorMessageComponent,
   ],
   imports: [
     BrowserModule,
