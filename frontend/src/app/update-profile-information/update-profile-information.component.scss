@@ -12,8 +12,17 @@
       width: 50%;
       &.form-element {
         padding: 5px 0px 25px 2px;
+        .mat-input-element {
+          &:read-only{
+            opacity:0.3;
+            &:hover{
+              cursor: default;
+            }
+          }
+        }
       }
     }
+
   }
 }
 
