@@ -19,6 +19,7 @@ import { SubjectListComponent } from './subject-list/subject-list.component';
 import {AuthGuard} from "./auth-guard";
 import {AddUserComponent} from "./add-user/add-user.component";
 import {UsersListComponent} from "./users-list/users-list.component";
+import {UpdateProfileInformationComponent} from "./update-profile-information/update-profile-information.component";
 
 export const ROUTES: Routes = [
   {
@@ -112,6 +113,11 @@ export const ROUTES: Routes = [
     path: 'schedule',
     component: SchedulerComponent,
     children: [{ path: ':type/:id', component: SchedulerComponent }],
+    canActivate: [AuthGuard],
+  },
+  {
+    path: 'update-profile-information',
+    component: UpdateProfileInformationComponent,
     canActivate: [AuthGuard],
   },
   {

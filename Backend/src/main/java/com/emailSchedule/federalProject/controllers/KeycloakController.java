@@ -87,7 +87,8 @@ public class KeycloakController {
 
 	@PutMapping("/user")
 	public ResponseEntity<UserRepresentation> updateUserDescriptionAttribute(@RequestParam String username,
-			@RequestParam String description) {
+			@RequestParam String firstname, @RequestParam String lastname, @RequestParam String password
+			) {
 		Keycloak keycloak = getKeycloakInstance();
 		Optional<UserRepresentation> user = keycloak.realm(env.getProperty("keycloak.realm")).users().search(username)
 				.stream().filter(u -> u.getUsername().equals(username)).findFirst();
@@ -95,9 +96,14 @@ public class KeycloakController {
 			UserRepresentation userRepresentation = user.get();
 			UserResource userResource = keycloak.realm(env.getProperty("keycloak.realm")).users()
 					.get(userRepresentation.getId());
-			Map<String, List<String>> attributes = new HashMap<>();
-			attributes.put("description", Arrays.asList(description));
-			userRepresentation.setAttributes(attributes);
+			userRepresentation.setFirstName(firstname);
+			userRepresentation.setLastName(lastname);
+			userRepresentation.setEmail(username);
+			CredentialRepresentation credentials = new CredentialRepresentation();
+			credentials.setType(CredentialRepresentation.PASSWORD);
+			credentials.setValue(password);
+			credentials.setTemporary(false);
+			userRepresentation.setCredentials(Arrays.asList(credentials));
 			userResource.update(userRepresentation);
 			return ResponseEntity.ok().body(userRepresentation);
 		} else {

@@ -108,6 +108,10 @@ export class ApplicationService {
   removeUser(user: User): Observable<any> {
     return this.http.delete(`api/keycloak/user?username=${user.email}`);
   }
+  updateUser(user: User): Observable<any> {
+    return this.http.put(`api/keycloak/user?username=${user.email}&firstname=${user.firstName}&lastname=${user.lastName}&password=${user.password},`,{});
+
+  }
   getUsers(): Observable<User[]> {
     return this.http.get<User[]>(`api/keycloak/users`);
   }

@@ -156,6 +156,12 @@ export class MenuComponent implements OnInit {
         icon: 'pi pi-fw pi-user',
         items: [
           {
+            label: 'Update Information',
+            command: (event: any) => {
+              this.route.navigate(['/update-profile-information']);
+            },
+          },
+          {
             label: 'Logout',
             icon: 'pi pi-fw pi-power-off',
             command: (event: any) => {

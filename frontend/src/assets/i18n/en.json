@@ -35,7 +35,8 @@
     "password": "Password",
     "addUser": "Add User",
     "isManager": "Is Administrator",
-    "username": "User Name"
+    "username": "User Name",
+    "updateProfile": "Update Profile Information"
   },
   "subject": {
     "id": "Subject ID",
