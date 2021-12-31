@@ -1,5 +1,7 @@
 <div class="container mt-5">
-    <p-table    [paginator]="true" [rows]="5" [rowsPerPageOptions]="[5,10,15,20]"  [value]="Students" responsiveLayout="scroll"  *ngIf="!spinner">
+    <p-table [loading]="spinner"  [paginator]="true" [rows]="5"
+             [rowsPerPageOptions]="[5,10,15,20]"  [value]="Students"
+             responsiveLayout="scroll">
       <ng-template pTemplate="header">
         <tr>
           <th>{{ 'code' | translate }}</th>
@@ -42,7 +44,4 @@
       </ng-template>
     </p-table>
 
-      <div  *ngIf="spinner" class="w-100 d-flex justify-content-center align-items-center mt-5">
-        <mat-spinner></mat-spinner>
-      </div>
     </div>
