@@ -16,9 +16,6 @@ import { SharedModule } from './shared-module/shared-module.module';
 import { ReactiveFormsModule } from '@angular/forms';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { HttpClientModule } from '@angular/common/http';
-import { RoleGuardService } from './role-guard.service';
-import { AuthGuardService } from './auth-guard.service';
-import { AuthService } from './auth.service';
 import { JWT_OPTIONS, JwtHelperService } from '@auth0/angular-jwt';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AddTeacherComponent } from './add-teacher/add-teacher.component';
@@ -111,10 +108,7 @@ import { UsersListComponent } from './users-list/users-list.component';
     }),
   ],
   providers: [
-    AuthGuardService,
-    RoleGuardService,
     EventService,
-    AuthService,
     { provide: JWT_OPTIONS, useValue: JWT_OPTIONS },
     {
       provide: APP_INITIALIZER,
