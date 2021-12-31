@@ -5,6 +5,7 @@ import {Router} from "@angular/router";
 import {MatDialog} from "@angular/material/dialog";
 import {ActionModalComponent} from "../action-modal/action-modal.component";
 import {User} from "../models/user";
+import {KeycloakService} from "keycloak-angular";
 
 @Component({
   selector: 'app-users-list',
@@ -15,11 +16,15 @@ export class UsersListComponent implements OnInit {
 
   public Users: User[] = [];
   public spinner: boolean = false;
+  public userInfo: any;
   constructor(
     private service: ApplicationService,
     private route: Router,
-    public dialog: MatDialog
-  ) {}
+    public dialog: MatDialog,
+    private keycloakService:KeycloakService
+  ) {
+    this.userInfo=this.keycloakService.getKeycloakInstance().profile;
+  }
 
   ngOnInit(): void {
     this.getAll();

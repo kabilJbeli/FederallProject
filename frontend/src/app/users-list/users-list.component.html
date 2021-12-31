@@ -18,7 +18,7 @@
         <td>{{user.email}}</td>
         <td>{{user.username}}</td>
         <td>
-          <button mat-button (click)="removeUser(user)">
+          <button mat-button (click)="removeUser(user)" [disabled]="userInfo.username === user.username">
             {{ 'remove' | translate }}
           </button>
         </td>
