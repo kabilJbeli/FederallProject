@@ -149,11 +149,6 @@ export class MenuComponent implements OnInit {
         }
       )
     }
-
-
-  }
-
-  ngOnInit(): void {
     const userInfo:any=this.keycloakService.getKeycloakInstance().profile;
     this.items.push(
       {
@@ -171,5 +166,8 @@ export class MenuComponent implements OnInit {
         ]
       }
     );
+  }
+
+  ngOnInit(): void {
   }
 }
