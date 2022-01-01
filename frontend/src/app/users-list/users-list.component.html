@@ -1,4 +1,6 @@
 <div class="container mt-5">
+  <h2 class="mb-4">User List({{Users.length}}):</h2>
+
   <p-table [paginator]="true" [loading]="spinner" [rows]="5"
            [rowsPerPageOptions]="[5,10,15,20]" [value]="Users"
            responsiveLayout="scroll">
@@ -8,7 +10,7 @@
         <th>{{ 'user.lastName' | translate }}</th>
         <th>{{ 'user.email' | translate }}</th>
         <th>{{ 'user.username' | translate }}</th>
-        <th>{{ 'actions' | translate }}</th>
+        <th class="action-header">{{ 'actions' | translate }}</th>
       </tr>
     </ng-template>
     <ng-template pTemplate="body" let-user>
@@ -17,8 +19,8 @@
         <td>{{user.lastName}}</td>
         <td>{{user.email}}</td>
         <td>{{user.username}}</td>
-        <td>
-          <button mat-button (click)="removeUser(user)" [disabled]="userInfo.username === user.username">
+        <td  class="d-flex justify-content-around">
+          <button mat-button mat-stroked-button class="mat-warn" (click)="removeUser(user)" [disabled]="userInfo.username === user.username">
             {{ 'remove' | translate }}
           </button>
         </td>

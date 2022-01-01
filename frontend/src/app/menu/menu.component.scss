@@ -1,4 +1,38 @@
-::ng-deep .p-menubar{
+::ng-deep .p-menubar {
+  background: #c92830;
+  .p-menuitem {
+    &.p-menuitem-active > .p-menuitem-link{
+      background: transparent !important;
+      box-shadow: none !important;
+    }
+    >  .p-menuitem-link {
+      padding: 8px !important;
+      font-size: 14px !important;
+    &:hover {
+      background: transparent !important;
+    }
+   &:focus{
+     box-shadow: none !important;
+   }
+    span {
+      color: #fff !important;
+    }
+  }
+    p-menubarsub{
+      .p-menuitem-link {
+        padding: 0.75rem 1.25rem !important;
+        &:hover {
+          background: transparent !important;
+        }
+        &:focus{
+          box-shadow: none !important;
+        }
+        span {
+          color: #495057 !important;
+        }
+      }
+    }
+}
   &.p-component {
   border: none;
   border-radius: 0;

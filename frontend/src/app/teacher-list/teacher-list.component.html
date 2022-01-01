@@ -1,5 +1,6 @@
 <div class="container mt-5">
-<p-table [loading]="spinner"  [paginator]="true" [rows]="5"
+  <h2 class="mb-4">Teacher List({{Teachers.length}}):</h2>
+  <p-table [loading]="spinner"  [paginator]="true" [rows]="5"
          [rowsPerPageOptions]="[5,10,15,20]"  [value]="Teachers"
          responsiveLayout="scroll" >
   <ng-template pTemplate="header">
@@ -10,7 +11,7 @@
       <th>{{ 'teacher.lastName' | translate }}</th>
       <th>{{ 'teacher.email' | translate }}</th>
       <th>{{ 'teacher.birthDate' | translate }}</th>
-      <th>{{ 'actions' | translate }}</th>
+      <th class="action-header">{{ 'actions' | translate }}</th>
     </tr>
   </ng-template>
   <ng-template pTemplate="body" let-teacher>
@@ -21,14 +22,14 @@
       <td>{{teacher.lastname}}</td>
       <td>{{teacher.email}}</td>
       <td>{{teacher.birthdate}}</td>
-      <td>
-      <button mat-button (click)="removeTeacher(teacher.teacher_ID)">
+      <td  class="d-flex justify-content-around">
+      <button mat-button mat-stroked-button class="mat-warn" (click)="removeTeacher(teacher.teacher_ID)">
         {{ 'remove' | translate }}
       </button>
-        <button mat-button (click)="updateTeacher(teacher.teacher_ID)">
+        <button mat-button mat-stroked-button (click)="updateTeacher(teacher.teacher_ID)">
           {{ 'update' | translate }}
         </button>
-        <button mat-button (click)="goToSchedule(teacher.teacher_ID)">
+        <button mat-button mat-stroked-button (click)="goToSchedule(teacher.teacher_ID)">
           {{ 'consultSchedule' | translate }}
         </button>
       </td>

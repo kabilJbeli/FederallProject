@@ -1,12 +1,15 @@
 <div class="container mt-5">
-    <p-table [loading]="spinner" [paginator]="true" [rows]="5" [rowsPerPageOptions]="[5,10,15,20]"  [value]="Subjects" responsiveLayout="scroll" >
+  <h2 class="mb-4">Subject List({{Subjects.length}}):</h2>
+  <p-table [loading]="spinner" [paginator]="true" [rows]="5"
+           [rowsPerPageOptions]="[5,10,15,20]"  [value]="Subjects"
+           responsiveLayout="scroll" >
       <ng-template pTemplate="header">
         <tr>
           <th>{{ 'id' | translate }}</th>
           <th>{{ 'subject.name' | translate }}</th>
           <th>{{ 'subject.credit' | translate }}</th>
           <th>{{ 'subject.courseload' | translate }}</th>
-          <th>{{ 'actions' | translate }}</th>
+          <th class="action-header">{{ 'actions' | translate }}</th>
         </tr>
       </ng-template>
       <ng-template pTemplate="body" let-subject>
@@ -15,11 +18,11 @@
           <td>{{subject.subject_NAME}}</td>
           <td>{{subject.credit}}</td>
           <td>{{subject.course_LOAD}}</td>
-          <td>
-          <button mat-button (click)="removeSubject(subject.subject_ID)">
+          <td  class="d-flex justify-content-around">
+          <button mat-button mat-stroked-button class="mat-warn" (click)="removeSubject(subject.subject_ID)">
             {{ 'remove' | translate }}
           </button>
-            <button mat-button (click)="updateSubject(subject.subject_ID)">
+            <button mat-button mat-stroked-button (click)="updateSubject(subject.subject_ID)">
               {{ 'update' | translate }}
             </button>
           </td>

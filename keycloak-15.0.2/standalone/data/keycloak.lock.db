@@ -1,6 +1,6 @@
 #FileLock
-#Sat Jan 01 10:08:45 WAT 2022
+#Sat Jan 01 12:02:53 WAT 2022
 hostName=DESKTOP-IJJ5R79
-id=17e14e5ef04f4d1ba7ef06061b2084baeea35fb60ae
+id=17e154e6fd03a634ea7ef5d7f5995777e1a8504703b
 method=file
-server=192.168.42.1\:65066
+server=192.168.42.1\:51700

@@ -1,4 +1,5 @@
 <div class="container mt-5">
+  <h2 class="mb-4">Group List({{groups.length}}):</h2>
   <p-table [loading]="spinner" [paginator]="true" [rows]="5"
            [rowsPerPageOptions]="[5,10,15,20]"  [value]="groups"
            responsiveLayout="scroll">
@@ -7,7 +8,7 @@
         <th>{{ 'code' | translate }}</th>
         <th>{{ 'group.name' | translate }}</th>
         <th>{{ 'group.major' | translate }}</th>
-        <th>{{ 'actions' | translate }}</th>
+        <th class="action-header">{{ 'actions' | translate }}</th>
       </tr>
     </ng-template>
     <ng-template pTemplate="body" let-group>
@@ -15,14 +16,14 @@
         <td>{{group.groupId}}</td>
         <td>{{group.groupname}}</td>
         <td>{{group.groupmajore}}</td>
-        <td>
-          <button mat-button (click)="removeGroup(group.groupId)">
+        <td class="d-flex justify-content-around">
+          <button mat-button mat-stroked-button class="mat-warn" (click)="removeGroup(group.groupId)">
             {{ 'remove' | translate }}
           </button>
-          <button mat-button (click)="updateGroup(group.groupId)">
+          <button mat-button mat-stroked-button  (click)="updateGroup(group.groupId)">
             {{ 'update' | translate }}
           </button>
-          <button mat-button (click)="goToSchedule(group.groupId)">
+          <button mat-button mat-stroked-button (click)="goToSchedule(group.groupId)">
             {{ 'consultSchedule' | translate }}
           </button>
         </td>

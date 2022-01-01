@@ -1,0 +1,22 @@
+::ng-deep .p-datatable-table{
+  td, th {
+    border: 1px solid #ddd !important;
+    padding: 8px !important;
+  }
+  tr:nth-child(even){background-color: #f2f2f2 !important;}
+  tr:hover {background-color: #ddd !important;}
+  th {
+    padding-top: 12px !important;
+    padding-bottom: 12px !important;
+    text-align: left !important;
+    background-color: #c92830 !important;
+    color: white !important;
+    font-weight: normal !important;
+    font-size: 14px !important;
+    &.action-header{
+      width: 400px !important;
+      text-align:center !important;
+    }
+  }
+
+}
