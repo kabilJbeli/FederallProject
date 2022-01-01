@@ -62,7 +62,7 @@ public class KeycloakController {
 		userRepresentation.setLastName(lastname);
 		userRepresentation.setEnabled(true);
 		userRepresentation.setCredentials(Arrays.asList(credentials));
-
+		userRepresentation.setEmailVerified(false);
 		if (ismanager) {
 			List<String> roles = new ArrayList<String>();
 			roles.add("front-manager");
@@ -99,11 +99,10 @@ public class KeycloakController {
 			userRepresentation.setFirstName(firstname);
 			userRepresentation.setLastName(lastname);
 			userRepresentation.setEmail(username);
-			CredentialRepresentation credentials = new CredentialRepresentation();
+			/*CredentialRepresentation credentials = new CredentialRepresentation();
 			credentials.setType(CredentialRepresentation.PASSWORD);
 			credentials.setValue(password);
-			credentials.setTemporary(false);
-			userRepresentation.setCredentials(Arrays.asList(credentials));
+			credentials.setTemporary(false);*/
 			userResource.update(userRepresentation);
 			return ResponseEntity.ok().body(userRepresentation);
 		} else {
