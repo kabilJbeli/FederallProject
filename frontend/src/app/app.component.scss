@@ -1,7 +1,7 @@
 ::ng-deep .p-datatable-table{
   td, th {
-    border: 1px solid #ddd !important;
-    padding: 8px !important;
+    border: none !important;
+    padding: 5px !important;
   }
   tr:nth-child(even){background-color: #f2f2f2 !important;}
   tr:hover {background-color: #ddd !important;}
