@@ -1,4 +1,13 @@
 ::ng-deep full-calendar{
   max-height: 650px;
   padding-bottom:1.5rem;
+  .fc-button {
+    background: #c92830 !important;
+    border: none !important;
+    font-size: 1rem !important;
+    border-radius: 5px !important;
+    display: flex !important;
+    align-items: center;
+    height:29px;
+  }
 }
