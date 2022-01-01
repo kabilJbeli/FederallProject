@@ -1,5 +1,16 @@
 ::ng-deep .p-menubar {
   background: #c92830;
+  position: fixed;
+  width: 100%;
+  z-index: 3;
+  top: 0;
+  @media only screen and (max-width: 960px) {
+    .p-menubar-button{
+      color:#fff !important;
+    }
+  }
+  @media only screen and (min-width: 961px) {
+
   .p-menuitem {
     &.p-menuitem-active > .p-menuitem-link{
       background: transparent !important;
@@ -33,6 +44,7 @@
       }
     }
 }
+  }
   &.p-component {
   border: none;
   border-radius: 0;
