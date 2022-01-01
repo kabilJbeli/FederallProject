@@ -14,7 +14,6 @@ export class MenuComponent implements OnInit {
   constructor(private route: Router,private keycloakService: KeycloakService) {
 
     this.items = [
-
       {
         label: 'Departments',
         command: (event: any) => {},
@@ -76,6 +75,7 @@ export class MenuComponent implements OnInit {
       {
         label: userInfo.firstName+' '+userInfo.lastName,
         icon: 'pi pi-fw pi-user',
+        styleClass:'pull-right d-right',
         items: [
           {
             label: 'Update Information',
