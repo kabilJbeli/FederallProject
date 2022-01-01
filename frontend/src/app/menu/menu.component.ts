@@ -21,6 +21,70 @@ export class MenuComponent implements OnInit {
         },
       },
       {
+        label: 'Departments',
+        items: [
+          {
+            label: 'Departments List',
+            command: (event: any) => {},
+          },
+          { label: 'Add Department', command: (event: any) => {} },
+        ],
+      },
+
+      {
+        label: 'Classrooms',
+        items: [
+          {
+            label: 'Classrooms List',
+            command: (event: any) => {
+              this.route.navigate(['/class-room-list']);
+            },
+          },
+          {
+            label: 'Add Classroom',
+            command: (event: any) => {
+              this.route.navigate(['/add-class-room']);
+            },
+          },
+        ],
+      },
+
+      {
+        label: 'Groups',
+        items: [
+          {
+            label: 'Groups List',
+            command: (event: any) => {
+              this.route.navigate(['/group-list']);
+            },
+          },
+          {
+            label: 'Add Group',
+            command: (event: any) => {
+              this.route.navigate(['/add-group']);
+            },
+          },
+        ],
+      },
+
+      {
+        label: 'Subjects',
+        items: [
+          {
+            label: 'Subjects List',
+            command: (event: any) => {
+              this.route.navigate(['/subjects-list']);
+            },
+          },
+          {
+            label: 'Add Subject',
+            command: (event: any) => {
+              this.route.navigate(['/add-subject']);
+            },
+          },
+        ],
+      },
+      {
         label: 'Teachers',
         items: [
           {
@@ -55,73 +119,12 @@ export class MenuComponent implements OnInit {
         ],
       },
       {
-        label: 'Subjects',
-        items: [
-          {
-            label: 'Subjects List',
-            command: (event: any) => {
-              this.route.navigate(['/subjects-list']);
-            },
-          },
-          {
-            label: 'Add Subject',
-            command: (event: any) => {
-              this.route.navigate(['/add-subject']);
-            },
-          },
-        ],
-      },
-      {
-        label: 'Groups',
-        items: [
-          {
-            label: 'Groups List',
-            command: (event: any) => {
-              this.route.navigate(['/group-list']);
-            },
-          },
-          {
-            label: 'Add Group',
-            command: (event: any) => {
-              this.route.navigate(['/add-group']);
-            },
-          },
-        ],
-      },
-      {
         label: 'Agenda',
         items: [
           {
             label: 'Consult  Agendas',
             command: (event: any) => {
               this.route.navigate(['/schedule']);
-            },
-          },
-        ],
-      },
-      {
-        label: 'Departments',
-        items: [
-          {
-            label: 'Departments List',
-            command: (event: any) => {},
-          },
-          { label: 'Add Department', command: (event: any) => {} },
-        ],
-      },
-      {
-        label: 'Classrooms',
-        items: [
-          {
-            label: 'Classrooms List',
-            command: (event: any) => {
-              this.route.navigate(['/class-room-list']);
-            },
-          },
-          {
-            label: 'Add Classroom',
-            command: (event: any) => {
-              this.route.navigate(['/add-class-room']);
             },
           },
         ],

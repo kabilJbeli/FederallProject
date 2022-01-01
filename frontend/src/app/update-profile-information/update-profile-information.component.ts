@@ -40,8 +40,8 @@ export class UpdateProfileInformationComponent implements OnInit {
     this.spinner = true;
     this.service.updateUser(user).subscribe(
       (res) => {
-        this.route.navigate(['/dashboard']);
-        this.spinner = false;
+          this.route.navigate(['/dashboard']);
+          this.spinner = false;
       },
       (error) => {
         this.spinner = true;
