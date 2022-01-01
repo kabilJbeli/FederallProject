@@ -1,5 +1,5 @@
 <div class="container mt-4">
-  <h2 class="mb-4">Update Classroom:</h2>
+  <h2 class="mb-4">{{ 'classRoom.updateClassRoom' | translate }}:</h2>
   <form [formGroup]="formGroup" (ngSubmit)="onSubmit(formGroup.value)" class="form" *ngIf="!spinner">
 
     <mat-form-field class="form-element">
@@ -11,8 +11,6 @@
       <mat-label>{{ 'classRoom.stage' | translate }}</mat-label>
       <input matInput  formControlName="stage">
     </mat-form-field>
-
-
 
     <div class="form-element">
       <button mat-button color="warn" type='button'   class="button mr-3" (click)="cancel($event)">{{ 'cancel' | translate }}</button>

@@ -1,5 +1,5 @@
 <div class="container mt-4">
-  <h2 class="mb-4">Classroom List({{classRooms.length}}):</h2>
+  <h2 class="mb-4">{{'classRoom.list'|translate}}({{classRooms.length}}):</h2>
   <p-table [loading]="spinner" [paginator]="true" [rows]="5"
            [rowsPerPageOptions]="[5,10,15,20]"  [value]="classRooms"
            responsiveLayout="scroll">

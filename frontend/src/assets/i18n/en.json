@@ -7,6 +7,7 @@
   "cancel": "Cancel",
   "no": "No",
   "yes": "Yes",
+  "calendar": "Calendar",
   "modalDeleteValidationMessage": "Are You Sure You Want To Delete This",
   "modalUpdateValidationMessage": "Are You Sure You Want To Update This",
   "noRecordsFound": "No Records Found!",
@@ -17,7 +18,9 @@
     "email": "Email",
     "birthDate": "Birth Date",
     "addTeacher": "Add Teacher",
-    "updateTeacher": "Update Teacher"
+    "updateTeacher": "Update Teacher",
+    "addNew": "Add New Teacher:",
+    "list": "Teacher List"
   },
   "student": {
     "cin": "Cin",
@@ -26,7 +29,9 @@
     "email": "Email",
     "birthDate": "Birth Date",
     "addStudent": "Add Student",
-    "updateStudent": "Update Student"
+    "updateStudent": "Update Student",
+    "addNew": "Add New Student:",
+    "list": "Student List"
   },
   "user": {
     "name": "Name",
@@ -36,7 +41,9 @@
     "addUser": "Add User",
     "isManager": "Is Administrator",
     "username": "User Name",
-    "updateProfile": "Update Profile Information"
+    "updateProfile": "Update Profile Information",
+    "addNew": "Add New User:",
+    "list": "User List"
   },
   "subject": {
     "id": "Subject ID",
@@ -44,18 +51,24 @@
     "credit": "Credit",
     "courseload": "Course Load",
     "addSubject": "Add Subject",
-    "updateSubject": "Update Subject"
+    "updateSubject": "Update Subject",
+    "addNew": "Add New Subject:",
+    "list": "Subject List"
   },
   "group": {
     "name": "Group Name",
     "major": "Major",
     "addGroup": "Add Group",
-    "updateGroup": "Update Group"
+    "updateGroup": "Update Group",
+    "addNew": "Add New Group:",
+    "list": "Group List"
   },
   "classRoom": {
     "classNumber": "Class Room Number",
     "stage": "Stage",
     "addClassRoom": "Add Class Room",
-    "updateClassRoom": "Update Class Room"
+    "updateClassRoom": "Update Class Room",
+    "addNew": "Add New Classroom:",
+    "list": "Classroom List"
   }
 }

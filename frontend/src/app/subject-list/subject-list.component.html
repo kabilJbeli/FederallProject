@@ -1,5 +1,5 @@
 <div class="container mt-4">
-  <h2 class="mb-4">Subject List({{Subjects.length}}):</h2>
+  <h2 class="mb-4">{{'subject.list'|translate}}({{Subjects.length}}):</h2>
   <p-table [loading]="spinner" [paginator]="true" [rows]="5"
            [rowsPerPageOptions]="[5,10,15,20]"  [value]="Subjects"
            responsiveLayout="scroll" >
