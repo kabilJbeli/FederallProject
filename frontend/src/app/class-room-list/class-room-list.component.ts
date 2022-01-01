@@ -47,7 +47,9 @@ export class ClassRoomListComponent implements OnInit {
       }
     });
   }
-
+  addNew(){
+    this.route.navigate(['/add-class-room']);
+  }
   updateClassRoom(id: number) {
     this.route.navigate([`/update-class-room/${id}`]);
   }

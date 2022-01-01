@@ -1,5 +1,9 @@
 <div class="container mt-4">
+  <div class="d-flex justify-content-between align-items-center">
   <h2 class="mb-4">{{'classRoom.list'|translate}}({{classRooms.length}}):</h2>
+  <button mat-raised-button color="primary" type="submit" class="buttonl" (click)="addNew()"> {{'classRoom.addNew' | translate}}
+  </button>
+  </div>
   <p-table [loading]="spinner" [paginator]="true" [rows]="5"
            [rowsPerPageOptions]="[5,10,15,20]"  [value]="classRooms"
            responsiveLayout="scroll">

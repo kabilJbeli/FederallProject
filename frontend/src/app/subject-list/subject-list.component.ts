@@ -47,7 +47,9 @@ export class SubjectListComponent implements OnInit {
       }
     });
   }
-
+  addNew(){
+    this.route.navigate(['/add-subject']);
+  }
   updateSubject(id: number) {
     this.route.navigate([`/update-subject/${id}`]);
   }

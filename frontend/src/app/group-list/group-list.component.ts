@@ -48,7 +48,9 @@ export class GroupListComponent implements OnInit {
       }
     });
   }
-
+  addNew(){
+    this.route.navigate(['/add-group']);
+  }
   updateGroup(id: number) {
     this.route.navigate([`/update-group/${id}`]);
   }

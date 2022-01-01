@@ -14,120 +14,50 @@ export class MenuComponent implements OnInit {
   constructor(private route: Router,private keycloakService: KeycloakService) {
 
     this.items = [
-      {
-        icon: 'pi pi-fw pi-home',
-        command: (event: any) => {
-          this.route.navigate(['/dashboard']);
-        },
-      },
+
       {
         label: 'Departments',
-        items: [
-          {
-            label: 'Departments List',
-            command: (event: any) => {},
-          },
-          { label: 'Add Department', command: (event: any) => {} },
-        ],
+        command: (event: any) => {},
+
       },
 
       {
         label: 'Classrooms',
-        items: [
-          {
-            label: 'Classrooms List',
-            command: (event: any) => {
-              this.route.navigate(['/class-room-list']);
-            },
-          },
-          {
-            label: 'Add Classroom',
-            command: (event: any) => {
-              this.route.navigate(['/add-class-room']);
-            },
-          },
-        ],
+        command: (event: any) => {
+          this.route.navigate(['/class-room-list']);
+        },
       },
 
       {
         label: 'Groups',
-        items: [
-          {
-            label: 'Groups List',
-            command: (event: any) => {
-              this.route.navigate(['/group-list']);
-            },
-          },
-          {
-            label: 'Add Group',
-            command: (event: any) => {
-              this.route.navigate(['/add-group']);
-            },
-          },
-        ],
+        command: (event: any) => {
+          this.route.navigate(['/group-list']);
+        },
       },
 
       {
         label: 'Subjects',
-        items: [
-          {
-            label: 'Subjects List',
-            command: (event: any) => {
-              this.route.navigate(['/subjects-list']);
-            },
-          },
-          {
-            label: 'Add Subject',
-            command: (event: any) => {
-              this.route.navigate(['/add-subject']);
-            },
-          },
-        ],
+        command: (event: any) => {
+          this.route.navigate(['/subjects-list']);
+        },
       },
       {
         label: 'Teachers',
-        items: [
-          {
-            label: 'Teachers List',
-            command: (event: any) => {
-              this.route.navigate(['/teachers-list']);
-            },
-          },
-          {
-            label: 'Add Teacher',
-            command: (event: any) => {
-              this.route.navigate(['/add-teacher']);
-            },
-          },
-        ],
+        command: (event: any) => {
+          this.route.navigate(['/teachers-list']);
+        },
       },
       {
         label: 'Students',
-        items: [
-          {
-            label: 'Students List',
-            command: (event: any) => {
-              this.route.navigate(['/students-list']);
-            },
-          },
-          {
-            label: 'Add Student',
-            command: (event: any) => {
-              this.route.navigate(['/add-student']);
-            },
-          },
-        ],
+        command: (event: any) => {
+          this.route.navigate(['/students-list']);
+        },
       },
       {
         label: 'Agenda',
-        items: [
-          {
-            label: 'Consult  Agendas',
-            command: (event: any) => {
-              this.route.navigate(['/schedule']);
-            },
-          },
-        ],
+        command: (event: any) => {
+          this.route.navigate(['/schedule']);
+        },
       },
 
     ];
@@ -135,20 +65,9 @@ export class MenuComponent implements OnInit {
       this.items.push(
         {
           label: 'Users',
-          items: [
-            {
-              label: 'Users List',
-              command: (event: any) => {
-                this.route.navigate(['/users-list']);
-              },
-            },
-            {
-              label: 'Add User',
-              command: (event: any) => {
-                this.route.navigate(['/add-user']);
-              },
-            },
-          ],
+          command: (event: any) => {
+            this.route.navigate(['/users-list']);
+          },
         }
       )
     }
@@ -176,7 +95,10 @@ export class MenuComponent implements OnInit {
       }
     );
   }
+goToDashboard(){
+  this.route.navigate(['/dashboard']);
 
+}
   ngOnInit(): void {
   }
 }

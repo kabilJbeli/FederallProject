@@ -29,7 +29,9 @@ export class UsersListComponent implements OnInit {
   ngOnInit(): void {
     this.getAll();
   }
-
+  addNew(){
+    this.route.navigate(['/add-user']);
+  }
   getAll(): void {
     this.spinner = true;
     this.service.getUsers().subscribe((result: User[]) => {

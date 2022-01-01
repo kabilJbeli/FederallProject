@@ -46,7 +46,9 @@ export class TeacherListComponent implements OnInit {
       }
     });
   }
-
+  addNew(){
+    this.route.navigate(['/add-teacher']);
+  }
   updateTeacher(id: number) {
     this.route.navigate([`/update-teacher/${id}`]);
   }

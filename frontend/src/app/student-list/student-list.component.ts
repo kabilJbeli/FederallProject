@@ -47,7 +47,9 @@ export class StudentListComponent implements OnInit {
       }
     });
   }
-
+  addNew(){
+    this.route.navigate(['/add-student']);
+  }
   updateStudent(id: number) {
     this.route.navigate([`/update-student/${id}`]);
   }

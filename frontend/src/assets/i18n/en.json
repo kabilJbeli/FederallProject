@@ -20,7 +20,7 @@
     "birthDate": "Birth Date",
     "addTeacher": "Add Teacher",
     "updateTeacher": "Update Teacher",
-    "addNew": "Add New Teacher:",
+    "addNew": "Add New Teacher",
     "list": "Teacher List"
   },
   "student": {
@@ -31,7 +31,7 @@
     "birthDate": "Birth Date",
     "addStudent": "Add Student",
     "updateStudent": "Update Student",
-    "addNew": "Add New Student:",
+    "addNew": "Add New Student",
     "list": "Student List"
   },
   "user": {
@@ -43,7 +43,7 @@
     "isManager": "Is Administrator",
     "username": "User Name",
     "updateProfile": "Update Profile Information",
-    "addNew": "Add New User:",
+    "addNew": "Add New User",
     "list": "User List"
   },
   "subject": {
@@ -53,7 +53,7 @@
     "courseload": "Course Load",
     "addSubject": "Add Subject",
     "updateSubject": "Update Subject",
-    "addNew": "Add New Subject:",
+    "addNew": "Add New Subject",
     "list": "Subject List"
   },
   "group": {
@@ -61,7 +61,7 @@
     "major": "Major",
     "addGroup": "Add Group",
     "updateGroup": "Update Group",
-    "addNew": "Add New Group:",
+    "addNew": "Add New Group",
     "list": "Group List"
   },
   "classRoom": {
@@ -69,7 +69,7 @@
     "stage": "Stage",
     "addClassRoom": "Add Class Room",
     "updateClassRoom": "Update Class Room",
-    "addNew": "Add New Classroom:",
+    "addNew": "Add New Classroom",
     "list": "Classroom List"
   }
 }
