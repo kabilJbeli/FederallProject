@@ -99,6 +99,20 @@ goToDashboard(){
   this.route.navigate(['/dashboard']);
 
 }
+  activeMenu(event:any) {
+
+    let node;
+    if (event.target.tagName === "A") {
+      node = event.target;
+    } else {
+      node = event.target.parentNode;
+    }
+    let menuitem:any = document.getElementsByClassName("p-menuitem-link");
+    for (let item of menuitem) {
+      item.classList.remove("active");
+    }
+    node.classList.add("active")
+  }
   ngOnInit(): void {
   }
 }

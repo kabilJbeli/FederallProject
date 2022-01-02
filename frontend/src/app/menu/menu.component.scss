@@ -32,9 +32,19 @@
     &.p-menuitem-active > .p-menuitem-link{
       background: transparent !important;
       box-shadow: none !important;
+
     }
-    >  .p-menuitem-link {
+    .p-menuitem-link {
       font-size: 14px !important;
+      &.active {
+        background: #ffffff;
+        &:hover{
+          background: #ffffff !important;
+        }
+        span {
+          color: #495057 !important;
+        }
+      }
     &:hover {
       background: transparent !important;
     }

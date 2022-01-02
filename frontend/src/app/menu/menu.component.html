@@ -1,4 +1,4 @@
-<p-menubar [model]="items">
+<p-menubar [model]="items" (click) = "activeMenu($event)">
   <ng-template pTemplate="start">
     <a (click)="goToDashboard()" class="cursor-pointer" title="Go To Dashboard">
     <img src="assets/images/Logo-Pi-RVB.png" height="40" class="p-mr-2">
