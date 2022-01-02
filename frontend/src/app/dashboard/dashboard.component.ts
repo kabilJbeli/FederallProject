@@ -8,7 +8,6 @@ import * as Highcharts from 'highcharts';
 })
 export class DashboardComponent implements OnInit {
   title = 'myHighchart';
-
   highcharts = Highcharts;
   chartOptions: Highcharts.Options = {
     chart: {

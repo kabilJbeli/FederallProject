@@ -28,6 +28,18 @@
     &.d-right{
       position: absolute;
       right: 0;
+      &.active{
+        .p-menuitem-link {
+          background: transparent!important;
+          &.active span {
+            color: #ffffff !important;
+          }
+&:hover{
+  background: transparent!important;
+}
+
+        }
+    }
     }
     &.p-menuitem-active > .p-menuitem-link{
       background: transparent !important;
@@ -37,7 +49,7 @@
     .p-menuitem-link {
       font-size: 14px !important;
       &.active {
-        background: #ffffff;
+        background: #ffffff !important;
         &:hover{
           background: #ffffff !important;
         }

@@ -1,17 +1,14 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import {Observable} from "rxjs";
+import {Event} from "../models/event";
 
 @Injectable()
 export class EventService {
   constructor(private http: HttpClient) {}
 
-  getEvents() {
+  getEvents(): Observable<Event[]> {
     return this.http
-      .get('showcase/resources/data/calendarevents.json')
-      .toPromise()
-      .then((res: any) => <any[]>res.json().data)
-      .then((data: any) => {
-        return data;
-      });
+      .get<Event[]>('assets/mockdata/calendarevents.json');
   }
 }

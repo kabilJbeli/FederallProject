@@ -75,7 +75,7 @@ export class MenuComponent implements OnInit {
       {
         label: userInfo.firstName+' '+userInfo.lastName,
         icon: 'pi pi-fw pi-user',
-        styleClass:'pull-right d-right',
+        styleClass:'pull-right d-right active',
         items: [
           {
             label: 'Update Information',

@@ -3,7 +3,8 @@ import { EventService } from '../services/event.service';
 import dayGridPlugin from '@fullcalendar/daygrid';
 import interactionPlugin from '@fullcalendar/interaction';
 import timeGridPlugin from '@fullcalendar/timegrid';
-import { CalendarOptions, FullCalendarComponent } from '@fullcalendar/angular';
+import {CalendarOptions, EventInput, FullCalendarComponent} from '@fullcalendar/angular';
+import {Event} from "../models/event";
 
 @Component({
   selector: 'app-scheduler',
@@ -13,7 +14,7 @@ import { CalendarOptions, FullCalendarComponent } from '@fullcalendar/angular';
 export class SchedulerComponent implements OnInit {
   @ViewChild('calendar') calendarComponent: FullCalendarComponent | undefined;
 
-  events: any[] = [];
+  events: Event[] = [];
 
   options: CalendarOptions | undefined;
 
@@ -24,7 +25,7 @@ export class SchedulerComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.eventService.getEvents().then((events: any) => {
+    this.eventService.getEvents().subscribe((events: Event[]) => {
       this.events = events;
       this.options = { ...this.options, ...{ events: events } };
     });
