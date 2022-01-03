@@ -20,6 +20,9 @@ import {AuthGuard} from "./auth-guard";
 import {AddUserComponent} from "./add-user/add-user.component";
 import {UsersListComponent} from "./users-list/users-list.component";
 import {UpdateProfileInformationComponent} from "./update-profile-information/update-profile-information.component";
+import { DepartmentListComponent } from './department-list/department-list.component';
+import { AddDepartmentComponent } from './add-department/add-department.component';
+import { UpdateDepartmentComponent } from './update-department/update-department.component';
 
 export const ROUTES: Routes = [
   {
@@ -123,6 +126,22 @@ export const ROUTES: Routes = [
   {
     path: 'update-group/:id',
     component: UpdateGroupComponent,
+    canActivate: [AuthGuard],
+  },
+  {
+    path: 'department-list',
+    component: DepartmentListComponent,
+    canActivate: [AuthGuard],
+  },
+
+  {
+    path: 'add-department',
+    component: AddDepartmentComponent,
+    canActivate: [AuthGuard],
+  },
+  {
+    path: 'update-department/:id',
+    component: UpdateDepartmentComponent,
     canActivate: [AuthGuard],
   },
   {path: '**', redirectTo: '/dashboard'}

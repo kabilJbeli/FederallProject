@@ -8,6 +8,7 @@ import { Student } from '../models/student';
 import { ClassRoom } from '../models/classRoom';
 import { Subject } from '../models/subject';
 import {User} from "../models/user";
+import { Department } from '../models/department';
 
 @Injectable({
   providedIn: 'root',
@@ -114,5 +115,23 @@ export class ApplicationService {
   }
   getUsers(): Observable<User[]> {
     return this.http.get<User[]>(`api/keycloak/users`);
+  }
+
+
+  getAllDepartement(): Observable<Department[]> {
+    return this.http.get<Department[]>('api/departement/findall');
+  }
+
+  addDepartement(department: Department): Observable<any> {
+    return this.http.post('api/departement/create', department);
+  }
+  removeDepartement(id: number): Observable<any> {
+    return this.http.delete(`api/departement/delete/${id}`);
+  }
+  getDepartement(id: number): Observable<Subject> {
+    return this.http.get<Subject>(`api/departement/find/${id}`);
+  }
+  updateDepatement(department: Department): Observable<Department> {
+    return this.http.put<Department>(`api/departement/update`, department);
   }
 }

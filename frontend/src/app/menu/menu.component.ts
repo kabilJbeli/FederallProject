@@ -16,7 +16,9 @@ export class MenuComponent implements OnInit {
     this.items = [
       {
         label: 'Departments',
-        command: (event: any) => {},
+        command: (event: any) => {
+          this.route.navigate(['/department-list']);
+        },
 
       },
 
