@@ -47,4 +47,7 @@ export class SchedulerComponent implements OnInit {
       dayMaxEvents: true,
     };
   }
+  calendarEventsChanged(event:any){
+    console.log(event);
+  }
 }
