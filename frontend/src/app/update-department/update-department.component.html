@@ -10,8 +10,10 @@
 
       <mat-form-field appearance="fill">
         <mat-label>{{ 'departement.teachername' | translate }}</mat-label>
-        <select matNativeControl formControlName="teacher">
-          <option *ngFor="let teacher of teachers" [value]="teacher" [selected]="teacher.teacher_ID===f['teacher'].value.teacher_ID" >{{teacher.name}}</option>
+        <select matNativeControl (change)="setSelectedTeacher($event.target)">
+          <ng-container *ngFor="let teacherItem of teachers">
+          <option  *ngIf="teacherItem !==  null" [value]="teacherItem['teacher_ID']" [selected]="teacherItem.teacher_ID===f['teacher'].value.teacher_ID" >{{teacherItem.name}} {{teacherItem.lastname}}</option>
+          </ng-container>
         </select>
       </mat-form-field>
       <div class="form-element">

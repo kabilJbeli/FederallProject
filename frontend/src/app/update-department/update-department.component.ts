@@ -72,6 +72,12 @@ export class UpdateDepartmentComponent implements OnInit {
       }
     });
   }
+  setSelectedTeacher(teacher_ID:any){
+    const teacher:Teacher =  this.teachers.find(teacher=>teacher.teacher_ID===parseInt(teacher_ID.value));
+    this.formGroup.patchValue({
+      teacher:teacher
+    })
+  }
   cancel(event: any): void {
     this.route.navigate(['/department-list']);
   }
