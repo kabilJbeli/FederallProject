@@ -16,7 +16,7 @@ export class UpdateDepartmentComponent implements OnInit {
   public formGroup: FormGroup;
   public spinner: boolean = false;
   private currentdepartement: any;
-  public teachers: Teacher[] = [];
+  public teachers: any[] = [];
 
   constructor(
     private formBuilder: FormBuilder,

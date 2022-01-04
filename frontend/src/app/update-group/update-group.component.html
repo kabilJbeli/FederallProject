@@ -10,9 +10,9 @@
 
     <mat-form-field appearance="fill">
       <mat-label>{{ 'group.major' | translate }}</mat-label>
-      <mat-select formControlName="groupmajore">
-        <mat-option *ngFor="let major of Majors" [value]="major">{{major.majorType}}</mat-option>
-      </mat-select>
+      <select matNativeControl formControlName="groupmajore" >
+        <option *ngFor="let major of Majors" [value]="major" [selected]="major.majorId===f['groupmajore'].value.majorId">{{major.majorType}}</option>
+      </select>
     </mat-form-field>
 
     <div class="form-element">
