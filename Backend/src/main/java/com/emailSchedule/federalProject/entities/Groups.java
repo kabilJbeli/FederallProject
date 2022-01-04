@@ -5,6 +5,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
@@ -21,7 +22,8 @@ public class Groups {
 	private String groupname;
 
 	@Column(name = "GROUPMAJOR")
-	private String groupmajore;
+	
+	private Major groupmajore;
 
 	public Groups() {
 		super();
@@ -45,11 +47,12 @@ public class Groups {
 		this.groupname = groupname;
 	}
 
-	public String getGroupmajore() {
+	@ManyToOne
+	public Major getGroupmajore() {
 		return groupmajore;
 	}
 
-	public void setGroupmajore(String groupmajore) {
+	public void setGroupmajore(Major groupmajore) {
 		this.groupmajore = groupmajore;
 	}
 

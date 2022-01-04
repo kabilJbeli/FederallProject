@@ -1,0 +1,42 @@
+<div class="container mt-4">
+    <div class="d-flex justify-content-between align-items-center">
+    <h2 class="mb-4">{{'departement.list'|translate}}({{departements.length}}):</h2>
+    <button mat-raised-button color="primary" type="submit" class="button" (click)="addNew()"> {{'departement.addNew' | translate}}
+    </button>
+      </div>
+    <p-table [loading]="spinner"  [paginator]="true" [rows]="5"
+           [rowsPerPageOptions]="[5,10,15,20]"  [value]="departements"
+           responsiveLayout="scroll" >
+    <ng-template pTemplate="header">
+      <tr>
+        <th>{{ 'departement.name' | translate }}</th>
+        <th>{{ 'departement.teachername' | translate }}</th>
+
+        <th class="action-header">{{ 'actions' | translate }}</th>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-department>
+      <tr>
+        <td>{{department.departementname}}</td>
+        <td>{{department.teacher.name}}</td>
+        <td  class="d-flex justify-content-around">
+        <button mat-button mat-stroked-button class="mat-warn" (click)="removeDepartement(department.departementid)">
+          {{ 'remove' | translate }}
+        </button>
+          <button mat-button mat-stroked-button (click)="updateDepartment(department.departementid)">
+            {{ 'update' | translate }}
+          </button>
+        </td>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="emptymessage" let-columns>
+      <tr>
+        <td class="border-0">
+          {{'noRecordsFound' | translate}}
+        </td>
+      </tr>
+    </ng-template>
+  </p-table>
+  
+  </div>
+  

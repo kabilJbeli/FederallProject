@@ -11,7 +11,7 @@
     <mat-form-field appearance="fill">
       <mat-label>{{ 'group.major' | translate }}</mat-label>
       <mat-select formControlName="groupmajore">
-        <mat-option *ngFor="let major of Majors" [value]="major.majorType">{{major.majorType}}</mat-option>
+        <mat-option *ngFor="let major of Majors" [value]="major">{{major.majorType}}</mat-option>
       </mat-select>
     </mat-form-field>
 

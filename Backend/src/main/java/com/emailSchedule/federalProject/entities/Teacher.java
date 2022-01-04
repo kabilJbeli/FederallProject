@@ -9,6 +9,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToOne;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @Entity
@@ -33,8 +34,6 @@ public class Teacher {
 	@Column(name = "BIRTHDATE")
 	private LocalDate BIRTHDATE;
 	
-	private Departement departement;
-
 	public Teacher() {
 		super();
 		// TODO Auto-generated constructor stub
@@ -97,13 +96,5 @@ public class Teacher {
 
 	public void setTEACHER_ID(Integer tEACHER_ID) {
 		TEACHER_ID = tEACHER_ID;
-	}
-	@OneToOne(mappedBy = "teacher")
-	public Departement getDepartement() {
-		return departement;
-	}
-
-	public void setDepartement(Departement departement) {
-		this.departement = departement;
 	}
 }

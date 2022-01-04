@@ -55,6 +55,9 @@ import { AddUserComponent } from './add-user/add-user.component';
 import { UsersListComponent } from './users-list/users-list.component';
 import { ErrorMessageComponent } from './error-message/error-message.component';
 import { UpdateProfileInformationComponent } from './update-profile-information/update-profile-information.component';
+import { AddDepartmentComponent } from './add-department/add-department.component';
+import { DepartmentListComponent } from './department-list/department-list.component';
+import { UpdateDepartmentComponent } from './update-department/update-department.component';
 
 @NgModule({
   declarations: [
@@ -83,6 +86,9 @@ import { UpdateProfileInformationComponent } from './update-profile-information/
     UsersListComponent,
     ErrorMessageComponent,
     UpdateProfileInformationComponent,
+    AddDepartmentComponent,
+    DepartmentListComponent,
+    UpdateDepartmentComponent,
   ],
   imports: [
     BrowserModule,

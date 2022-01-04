@@ -72,4 +72,13 @@
     "addNew": "Add New Classroom",
     "list": "Classroom List"
   }
+,
+  "departement": {
+    "name":"Department Name",
+    "teachername":"Department Head",
+    "addNew": "Add New Department",
+    "list": "Department List",
+    "addDep":"Add Department",
+    "updatedepartement":"Update Department"
+  }
 }
