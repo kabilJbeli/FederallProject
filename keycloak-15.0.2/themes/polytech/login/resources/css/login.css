@@ -666,6 +666,9 @@ ul#kc-totp-supported-apps {
 
 /*phone*/
 @media (max-width: 767px) {
+	.card-pf {
+	min-width: 80% !important;
+}
     .login-pf-page .card-pf {
         max-width: none;
         margin-left: 0;
