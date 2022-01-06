@@ -1,3 +1,8 @@
+:root{
+	    --pf-global--primary-color--100: #db1512 !important;
+		--pf-global--primary-color--200: #b10d00 !important;
+}
+
 .login-pf body {
     background: url("../img/category-bg.jpg") no-repeat center center fixed;
     background-size: cover;
