@@ -2,8 +2,39 @@
     background: url("../img/category-bg.jpg") no-repeat center center fixed;
     background-size: cover;
     height: 100%;
+	animation: gradientBG 60s ease-in-out infinite;
 }
 
+@keyframes gradientBG{
+0%{
+    background-position:0% 50%;
+}
+50%{
+    background-position:100% 50%;
+}
+100%{
+    background-position:0% 50%;
+}
+}
+.login-pf-page {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 100%;
+    z-index: 1 !important;
+    position: fixed;
+}
+.login-pf body::before {
+    content: '';
+    background: #07010173;
+    width: 100%;
+    position: absolute;
+    height: 100%;
+    z-index: 0;
+    top: 0;
+}
 /*IE compatibility*/
 .pf-c-form-control {
     font-size: 14px;
@@ -226,8 +257,11 @@ div.kc-logo-text span {
     text-transform: uppercase;
     letter-spacing: 3px;
     line-height: 1.2em;
-    padding: 62px 10px 20px;
+    padding: 15px 10px 20px;
     white-space: normal;
+}
+.login-pf-page .login-pf-page-header {
+    margin-bottom: 0px !important;
 }
 
 #kc-content {

@@ -41,7 +41,11 @@
 <div class="${properties.kcLoginClass!}">
     <div id="kc-header" class="${properties.kcHeaderClass!}">
         <div id="kc-header-wrapper"
-             class="${properties.kcHeaderWrapperClass!}">${kcSanitize(msg("loginTitleHtml",(realm.displayNameHtml!'')))?no_esc}</div>
+             class="${properties.kcHeaderWrapperClass!}">
+			 <img width="3508" height="1231" src="${url.resourcesPath}/img/Logo-Pi-RVB.png"  alt="${kcSanitize(msg("loginTitleHtml",(realm.displayNameHtml!'')))?no_esc}" loading="lazy"
+			 style="max-width: 230px;">
+			 
+			 </div>
     </div>
     <div class="${properties.kcFormCardClass!}">
         <header class="${properties.kcFormHeaderClass!}">
