@@ -505,9 +505,6 @@ ul#kc-totp-supported-apps {
 
 @media (max-width: 767px) {
 
-    .login-pf body {
-        background: white;
-    }
 
     #kc-header {
         padding-left: 15px;
@@ -519,7 +516,7 @@ ul#kc-totp-supported-apps {
     #kc-header-wrapper {
         font-size: 16px;
         font-weight: bold;
-        padding: 20px 60px 0 0;
+       /* padding: 20px 60px 0 0;*/
         color: #72767b;
         letter-spacing: 0;
     }
@@ -673,8 +670,8 @@ ul#kc-totp-supported-apps {
         max-width: none;
         margin-left: 0;
         margin-right: 0;
-        padding-top: 0;
-        border-top: 0;
+       /*padding-top: 0;
+        border-top: 0;*/
         box-shadow: 0 0;
     }
 
