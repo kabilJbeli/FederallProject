@@ -35,8 +35,12 @@
     width: 100%;
     .mat-form-field{
       width: 50%;
+      padding-right:1rem !important;
       &.form-element {
         padding: 5px 0px 25px 2px;
+        .mat-form-field-wrapper {
+          padding-bottom: 1.6em !important;
+        }
         .mat-input-element {
           &:read-only{
             opacity:0.3;

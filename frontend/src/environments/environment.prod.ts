@@ -4,8 +4,7 @@ export const environment = {
   keycloak: {
     // Url of the Identity Provider
     issuer: 'http://localhost:8080/auth/',
-    // Realm
-    realm: 'demo-realm',
-    clientId: 'demo-angular',
+    realm: 'federateur',
+    clientId: 'federateur-front',
   },
 };
