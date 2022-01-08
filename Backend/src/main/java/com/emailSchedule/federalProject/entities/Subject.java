@@ -28,11 +28,27 @@ public class Subject {
 	@Column(name = "COURSE_LOAD")
 	private Integer COURSE_LOAD;
 	
-	@ManyToMany(mappedBy="subject")
+	@ManyToMany
+	public Set<Teacher> getTeacher() {
+		return teacher;
+	}
+
+	public void setTeacher(Set<Teacher> teacher) {
+		this.teacher = teacher;
+	}
+
+	@ManyToMany
+	public Set<Groups> getGroup() {
+		return group;
+	}
+
+	public void setGroup(Set<Groups> groups) {
+		this.group = groups;
+	}
+
 	private Set <Teacher> teacher;
 	
-	@ManyToMany(mappedBy="groups")
-	private Set <Groups> groups;
+	private Set <Groups> group;
 	
 	public Subject() {
 		super();

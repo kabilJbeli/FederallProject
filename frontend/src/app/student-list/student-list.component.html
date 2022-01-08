@@ -15,6 +15,7 @@
           <th>{{ 'student.lastName' | translate }}</th>
           <th>{{ 'student.email' | translate }}</th>
           <th>{{ 'student.birthDate' | translate }}</th>
+          <th>{{ 'group.name' | translate }}</th>
           <th class="action-header">{{ 'actions' | translate }}</th>
         </tr>
       </ng-template>
@@ -26,6 +27,7 @@
           <td>{{student.lastname}}</td>
           <td>{{student.email}}</td>
           <td>{{student.birthdate}}</td>
+          <td>{{student.group.groupname}}</td>
           <td  class="d-flex justify-content-around">
           <button mat-button mat-stroked-button class="mat-warn" (click)="removeStudent(student.student_ID)">
             {{ 'remove' | translate }}
