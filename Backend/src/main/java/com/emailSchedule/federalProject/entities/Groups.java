@@ -62,13 +62,8 @@ public class Groups {
 		this.groupmajore = groupmajore;
 	}
 
-	@ManyToMany(mappedBy="subject")
-	@JoinTable(name = "group_subject",
-            joinColumns = @JoinColumn(name = "IDGROUP"),
-            inverseJoinColumns = @JoinColumn(name = "SUBJECT_ID"))
+	@ManyToMany
 	Set <Subject> subject;
 	
-	@OneToMany(mappedBy="groupprojet")
-	private Set<Student> student;
 
 }

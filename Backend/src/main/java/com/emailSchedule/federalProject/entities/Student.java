@@ -10,6 +10,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 
 import org.hibernate.annotations.OnDelete;
 import org.hibernate.annotations.OnDeleteAction;
@@ -102,9 +103,16 @@ public class Student {
 		STUDENT_ID = sTUDENT_ID;
 	}
 	
-    @ManyToOne(fetch = FetchType.LAZY, optional = false)
-    @JoinColumn(name = "IDGROUP", nullable = false)
-    @OnDelete(action = OnDeleteAction.CASCADE)
-    private Groups groups;
+
+    private Groups group;
+    
+    @OneToOne
+	public Groups getGroup() {
+		return group;
+	}
+
+	public void setGroup(Groups groups) {
+		this.group = groups;
+	}
 
 }
