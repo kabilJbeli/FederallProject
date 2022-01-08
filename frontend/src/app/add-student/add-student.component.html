@@ -28,6 +28,13 @@
         <mat-datepicker #picker startView="year" ></mat-datepicker>
       </mat-form-field>
 
+      <mat-form-field class="form-element">
+        <mat-label>{{ 'group.name' | translate }}</mat-label>
+        <mat-select formControlName="group">
+         <mat-option *ngFor="let group of groups" [value]="group">{{group.groupname}}</mat-option>
+       </mat-select>
+     </mat-form-field>
+
       <div class="form-element">
         <button mat-raised-button color="primary" type="submit" class="button" [disabled]="!formGroup.valid">{{ 'student.addStudent' | translate }}</button>
       </div>

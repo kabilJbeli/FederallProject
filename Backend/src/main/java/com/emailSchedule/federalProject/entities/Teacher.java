@@ -99,10 +99,7 @@ public class Teacher {
 		TEACHER_ID = tEACHER_ID;
 	}
 	
-	@ManyToMany(mappedBy="teacher")
-	@JoinTable(name = "subject_teacher",
-            joinColumns = @JoinColumn(name = "TEACHER_ID"),
-            inverseJoinColumns = @JoinColumn(name = "SUBJECT_ID"))
+	@ManyToMany
 	Set <Subject> subject;
 	
 }

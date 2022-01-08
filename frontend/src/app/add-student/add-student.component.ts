@@ -4,6 +4,7 @@ import { ApplicationService } from '../services/application.service';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { Student } from '../models/student';
+import { Group } from '../models/group';
 
 
 @Component({
@@ -14,6 +15,7 @@ import { Student } from '../models/student';
 export class AddStudentComponent implements OnInit {
   public formGroup: FormGroup;
   public spinner: boolean = false;
+  public groups: Group[] = [];
   constructor(
     private formBuilder: FormBuilder,
     private service: ApplicationService,
@@ -28,6 +30,10 @@ export class AddStudentComponent implements OnInit {
       ],
       birthdate: [null, [Validators.required]],
       email: [null, [Validators.required, Validators.email]],
+      group: [null, [Validators.required]]
+    });
+    this.service.getAllGroup().subscribe((response: Group[]) => {
+      this.groups = response;
     });
   }
 
