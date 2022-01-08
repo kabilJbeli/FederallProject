@@ -1,10 +1,13 @@
 package com.emailSchedule.federalProject.entities;
 
+import java.util.Set;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
@@ -25,6 +28,12 @@ public class Subject {
 	@Column(name = "COURSE_LOAD")
 	private Integer COURSE_LOAD;
 	
+	@ManyToMany(mappedBy="subject")
+	private Set <Teacher> teacher;
+	
+	@ManyToMany(mappedBy="groups")
+	private Set <Groups> groups;
+	
 	public Subject() {
 		super();
 		// TODO Auto-generated constructor stub
@@ -32,10 +41,10 @@ public class Subject {
 
 	public Subject(Integer SUBJECT_ID, String SUBJECT_NAME, Float CREDIT, Integer COURSE_LOAD) {
 		super();
-		SUBJECT_ID = SUBJECT_ID;
-		SUBJECT_NAME = SUBJECT_NAME;
-		CREDIT = CREDIT;
-		COURSE_LOAD = COURSE_LOAD;
+		this.SUBJECT_ID = SUBJECT_ID;
+		this.SUBJECT_NAME = SUBJECT_NAME;
+		this.CREDIT = CREDIT;
+		this.COURSE_LOAD = COURSE_LOAD;
 	}
 
 	public String getSUBJECT_NAME() {

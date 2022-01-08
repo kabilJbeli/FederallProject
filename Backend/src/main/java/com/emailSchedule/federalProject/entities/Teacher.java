@@ -1,21 +1,22 @@
 package com.emailSchedule.federalProject.entities;
 
 import java.time.LocalDate;
+import java.util.Set;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToOne;
-
-import com.fasterxml.jackson.annotation.JsonBackReference;
+import javax.persistence.JoinTable;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToMany;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @Entity
 @JsonIgnoreProperties({ "hibernateLazyInitializer" })
 public class Teacher {
-
+	
 	@Column(name = "TEACHER_ID")
 	private Integer TEACHER_ID;
 
@@ -97,4 +98,11 @@ public class Teacher {
 	public void setTEACHER_ID(Integer tEACHER_ID) {
 		TEACHER_ID = tEACHER_ID;
 	}
+	
+	@ManyToMany(mappedBy="teacher")
+	@JoinTable(name = "subject_teacher",
+            joinColumns = @JoinColumn(name = "TEACHER_ID"),
+            inverseJoinColumns = @JoinColumn(name = "SUBJECT_ID"))
+	Set <Subject> subject;
+	
 }
