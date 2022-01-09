@@ -27,8 +27,8 @@ public class CalendarEventController {
 	@Autowired
 	private CalendarEventService service;
 	
-	@PostMapping("/add")
-	public void addClassRoom(@RequestBody EventRequestBody eventRequestBody) {
+	@PostMapping("/generate")
+	public CalendarEvent generateEvents(@RequestBody EventRequestBody eventRequestBody) {
 		
 		List<Subject> subjects = eventRequestBody.getSubjects();
 		List<Teacher> teachers = eventRequestBody.getTeachers();
@@ -41,28 +41,31 @@ public class CalendarEventController {
 			calendarEvent.setGroup(groups);
 			
 			for(Teacher teacher : teachers) {
-			/*	if(group.getIsEveningClass() && teacher.getIsOpenForEveningClasses()) {
+				
+			for(Groups group:groups) {
+				
+			
+			if(groups.getIsEveningClass() && teacher.getIsOpenForEveningClasses()) {
 					for(TeacherAvailability  availability: teacher.getAvailability()){
 					if(availability.getIsNotTaken()) {
 						calendarEvent.setStart(availability.getTimeAvailability());
 						LocalDateTime endTime = availability.getTimeAvailability().plusHours(3);
 						calendarEvent.setEnd(endTime);
-						return;
 						}
 					}					
-				}else if(!group.getIsEveningClass() && !teacher.getIsOpenForEveningClasses()) {
+				}else if(!groups.getIsEveningClass() && !teacher.getIsOpenForEveningClasses()) {
 					for(TeacherAvailability  availability: teacher.getAvailability()){
 						if(availability.getIsNotTaken()) {
 							calendarEvent.setStart(availability.getTimeAvailability());
 							LocalDateTime endTime = availability.getTimeAvailability().plusHours(3);
 							calendarEvent.setEnd(endTime);
-							return;
 							}
-						}*/
+						}
 				}
+			}
 			}							
 			
-			service.generateCalendarEvent(calendarEvent);
+			return service.generateCalendarEvent(calendarEvent);
 			}
 		
 	}
