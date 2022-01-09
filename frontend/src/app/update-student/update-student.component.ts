@@ -6,6 +6,7 @@ import { Observable } from 'rxjs';
 import { Student } from '../models/student';
 import { ActionModalComponent } from '../action-modal/action-modal.component';
 import { MatDialog } from '@angular/material/dialog';
+import { Group } from '../models/group';
 
 @Component({
   selector: 'app-update-student',
@@ -16,6 +17,8 @@ export class UpdateStudentComponent implements OnInit {
   public formGroup: FormGroup;
   public spinner: boolean = false;
   private currentStudent: any;
+  public groups: any[] = [];
+
   constructor(
     private formBuilder: FormBuilder,
     private service: ApplicationService,
@@ -32,10 +35,15 @@ export class UpdateStudentComponent implements OnInit {
       ],
       birthdate: [null, [Validators.required]],
       email: [null, [Validators.required, Validators.email]],
+      group: [null, [Validators.required]],
     });
     const id: number = parseInt(
       this._Activatedroute.snapshot.paramMap.get('id') || '0'
     );
+
+    this.service.getAllGroup().subscribe((response: Group[]) => {
+      this.groups = response;
+    });
 
     this.service.getStudent(id).subscribe((result: Student) => {
       this.currentStudent = result;
@@ -45,6 +53,7 @@ export class UpdateStudentComponent implements OnInit {
         cin: result.cin,
         birthdate: result.birthdate,
         email: result.email,
+        group: result.group
       });
     });
   }
@@ -89,6 +98,13 @@ export class UpdateStudentComponent implements OnInit {
           );
       }
     });
+  }
+
+  setSelectedGroup(groupId:any){
+    const group:Group =  this.groups.find(group=>group.groupId===parseInt(groupId.value));
+    this.formGroup.patchValue({
+      group:group
+    })
   }
 
   cancel(event: any): void {

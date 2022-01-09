@@ -14,6 +14,9 @@ import { Observable } from 'rxjs';
 export class SubjectListComponent implements OnInit {
   public Subjects: Subject[] = [];
   public spinner: boolean = false;
+  public groups: any[] = [];
+  public teachers: any[] = [];
+
   constructor(
     private service: ApplicationService,
     private route: Router,
