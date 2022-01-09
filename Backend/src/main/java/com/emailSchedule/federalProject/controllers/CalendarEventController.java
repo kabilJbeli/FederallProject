@@ -1,6 +1,7 @@
 package com.emailSchedule.federalProject.controllers;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
@@ -26,48 +27,47 @@ import com.emailSchedule.federalProject.services.CalendarEventService;
 public class CalendarEventController {
 	@Autowired
 	private CalendarEventService service;
-	
-	@PostMapping("/generate")
-	public CalendarEvent generateEvents(@RequestBody EventRequestBody eventRequestBody) {
-		
-		List<Subject> subjects = eventRequestBody.getSubjects();
-		List<Teacher> teachers = eventRequestBody.getTeachers();
-		Set<Groups> groups = eventRequestBody.getGroups();
-		CalendarEvent calendarEvent = new CalendarEvent();	
 
-		for (Subject subject : subjects) {
-			
-			calendarEvent.setSubject(subject);
-			calendarEvent.setGroup(groups);
-			
-			for(Teacher teacher : teachers) {
-				
-			for(Groups group:groups) {
-				
-			
-			if(groups.getIsEveningClass() && teacher.getIsOpenForEveningClasses()) {
-					for(TeacherAvailability  availability: teacher.getAvailability()){
-					if(availability.getIsNotTaken()) {
-						calendarEvent.setStart(availability.getTimeAvailability());
-						LocalDateTime endTime = availability.getTimeAvailability().plusHours(3);
-						calendarEvent.setEnd(endTime);
-						}
-					}					
-				}else if(!groups.getIsEveningClass() && !teacher.getIsOpenForEveningClasses()) {
-					for(TeacherAvailability  availability: teacher.getAvailability()){
-						if(availability.getIsNotTaken()) {
-							calendarEvent.setStart(availability.getTimeAvailability());
-							LocalDateTime endTime = availability.getTimeAvailability().plusHours(3);
-							calendarEvent.setEnd(endTime);
+	@PostMapping("/generate")
+	public List<CalendarEvent> generateEvents(@RequestBody EventRequestBody eventRequestBody) {
+
+		List<Subject> subjects = eventRequestBody.getSubjects();
+		Set<Groups> groups = eventRequestBody.getGroups();
+		List<CalendarEvent> calendarEvents = new ArrayList<CalendarEvent>();
+		for (Groups group : groups) {
+			for (Subject subject : subjects) {
+				CalendarEvent calendarEvent = new CalendarEvent();
+				Set<Teacher> teachers = subject.getTeacher();
+				for (Teacher teacher : teachers) {
+					boolean teach = service.thisteachgavecourse(teacher, subject, group);
+					calendarEvent.setSubject(subject);
+					calendarEvent.setGroup(groups);
+					if (teach)
+						calendarEvent.setTeacher(teacher);
+					if (group.getIsEveningClass() && teacher.getIsOpenForEveningClasses()) {
+						for (TeacherAvailability availability : teacher.getAvailability()) {
+							if (availability.getIsNotTaken()) {
+								calendarEvent.setStart(availability.getTimeAvailability());
+								LocalDateTime endTime = availability.getTimeAvailability().plusHours(3);
+								calendarEvent.setEnd(endTime);
 							}
 						}
+					} else if (!group.getIsEveningClass() && !teacher.getIsOpenForEveningClasses()) {
+						for (TeacherAvailability availability : teacher.getAvailability()) {
+							if (availability.getIsNotTaken()) {
+								calendarEvent.setStart(availability.getTimeAvailability());
+								LocalDateTime endTime = availability.getTimeAvailability().plusHours(3);
+								calendarEvent.setEnd(endTime);
+							}
+						}
+					}
 				}
+				calendarEvents.add(calendarEvent);
+				service.generateCalendarEvent(calendarEvent);
 			}
-			}							
-			
-			return service.generateCalendarEvent(calendarEvent);
-			}
-		
+		}
+		return calendarEvents;
+
 	}
 
-
+}
