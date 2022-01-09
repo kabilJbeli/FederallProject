@@ -6,6 +6,8 @@ import { Observable } from 'rxjs';
 import { Subject } from '../models/subject';
 import { ActionModalComponent } from '../action-modal/action-modal.component';
 import { MatDialog } from '@angular/material/dialog';
+import { Group } from '../models/group';
+import { Teacher } from '../models/teacher';
 
 @Component({
   selector: 'app-update-subject',
@@ -16,6 +18,9 @@ export class UpdateSubjectComponent implements OnInit {
   public formGroup: FormGroup;
   public spinner: boolean = false;
   private currentSubject: any;
+  public teachers: any[] = [];
+  public groups: any[] = [];
+
   constructor(
     private formBuilder: FormBuilder,
     private service: ApplicationService,
@@ -27,6 +32,8 @@ export class UpdateSubjectComponent implements OnInit {
       subject_NAME: [null, Validators.required],
       credit: [null, [Validators.required]],
       course_LOAD: [null, [Validators.required]],
+      group: [null, [Validators.required]],
+      teacher: [null, [Validators.required]],
     });
     const id: number = parseInt(
       this._Activatedroute.snapshot.paramMap.get('id') || '0'
@@ -37,11 +44,19 @@ export class UpdateSubjectComponent implements OnInit {
       this.formGroup.patchValue({
         subject_NAME: result.subject_NAME,
         credit: result.credit,
-        course_LOAD: result.course_LOAD,
+        course_LOAD: result.course_LOAD
       });
     });
+    this.service.getAllTeacher().subscribe((result:Teacher[])=>{
+      this.teachers=result;
+    });
+    this.service.getAllGroup().subscribe((result:Group[])=>{
+      this.groups=result;
+    });
   }
-
+  checkIfSelected(teacher:Teacher):Boolean{
+    return this.teachers.includes(teacher);
+  }
   ngOnInit(): void {}
 
   get f() {
@@ -82,6 +97,20 @@ export class UpdateSubjectComponent implements OnInit {
           );
       }
     });
+  }
+
+  setSelectedGroup(groupId:any){
+    const group:Group =  this.groups.find(group=>group.groupId===parseInt(groupId.value));
+    this.formGroup.patchValue({
+      group:group
+    })
+  }
+
+  setSelectedTeacher(teacher_ID:any){
+    const teacher:Teacher =  this.teachers.find(teacher=>teacher.teacher_ID===parseInt(teacher_ID.value));
+    this.formGroup.patchValue({
+      teacher:teacher
+    })
   }
 
   cancel(event: any): void {

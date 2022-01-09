@@ -30,6 +30,15 @@
         <mat-datepicker #picker startView="year" ></mat-datepicker>
       </mat-form-field>
 
+      <mat-form-field appearance="fill">
+        <mat-label>{{ 'group.name' | translate }}</mat-label>
+        <select matNativeControl (change)="setSelectedGroup($event.target)">
+          <ng-container *ngFor="let groupItem of groups">
+          <option  *ngIf="groupItem !==  null" [value]="groupItem['groupId']" [selected]="groupItem.groupId===f['group'].value.groupId" >{{groupItem.groupname}}</option>
+          </ng-container>
+        </select>
+      </mat-form-field>
+
       <div class="form-element">
         <button mat-button color="warn" type='button'   class="button mr-3" (click)="cancel($event)">{{ 'cancel' | translate }}</button>
         <button mat-raised-button color="primary" type="submit" class="button" [disabled]="!formGroup.valid">{{ 'student.updateStudent' | translate }}</button>
