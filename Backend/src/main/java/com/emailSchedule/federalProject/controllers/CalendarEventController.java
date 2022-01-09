@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.emailSchedule.federalProject.entities.CalendarEvent;
+import com.emailSchedule.federalProject.entities.ClassRoom;
 import com.emailSchedule.federalProject.entities.Groups;
 import com.emailSchedule.federalProject.entities.Subject;
 import com.emailSchedule.federalProject.entities.Teacher;
@@ -47,17 +48,26 @@ public class CalendarEventController {
 					if (group.getIsEveningClass() && teacher.getIsOpenForEveningClasses()) {
 						for (TeacherAvailability availability : teacher.getAvailability()) {
 							if (availability.getIsNotTaken()) {
+								if (calendarEvent.getTeacher() != null)
+									calendarEvent.setTeacher(teacher);
 								calendarEvent.setStart(availability.getTimeAvailability());
 								LocalDateTime endTime = availability.getTimeAvailability().plusHours(3);
 								calendarEvent.setEnd(endTime);
+								ClassRoom classroom = service.getavailableClassRoom(availability.getTimeAvailability(), endTime);
+								calendarEvent.setClassroom(classroom);
 							}
 						}
 					} else if (!group.getIsEveningClass() && !teacher.getIsOpenForEveningClasses()) {
 						for (TeacherAvailability availability : teacher.getAvailability()) {
 							if (availability.getIsNotTaken()) {
+								if (calendarEvent.getTeacher() != null)
+									calendarEvent.setTeacher(teacher);
+								
 								calendarEvent.setStart(availability.getTimeAvailability());
 								LocalDateTime endTime = availability.getTimeAvailability().plusHours(3);
 								calendarEvent.setEnd(endTime);
+								ClassRoom classroom = service.getavailableClassRoom(availability.getTimeAvailability(), endTime);
+								calendarEvent.setClassroom(classroom);
 							}
 						}
 					}

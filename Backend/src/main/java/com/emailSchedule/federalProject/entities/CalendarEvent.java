@@ -45,6 +45,17 @@ public class CalendarEvent implements Serializable {
 	private Subject subject;
 	private Set<Groups> group;
 	private Teacher teacher;
+	
+	@ManyToOne
+	public ClassRoom getClassroom() {
+		return classroom;
+	}
+
+	public void setClassroom(ClassRoom classroom) {
+		this.classroom = classroom;
+	}
+
+	private ClassRoom classroom;
 
 	public CalendarEvent() {
 		super();
