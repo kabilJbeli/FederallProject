@@ -5,7 +5,7 @@
     <mat-form-field class="form-element">
       <mat-label>{{ 'subject.name' | translate }}</mat-label>
       <mat-select multiple formControlName="subjects">
-        <mat-option *ngFor="let subject of subjects">
+        <mat-option *ngFor="let subject of subjects" [value]="subject">
           {{subject.subject_NAME}}
         </mat-option>
       </mat-select>
@@ -14,7 +14,7 @@
     <mat-form-field class="form-element">
       <mat-label>{{ 'group.name' | translate }}</mat-label>
       <mat-select multiple formControlName="groups">
-        <mat-option *ngFor="let group of groups">
+        <mat-option *ngFor="let group of groups" [value]="group">
           {{group.groupname}}
         </mat-option>
       </mat-select>

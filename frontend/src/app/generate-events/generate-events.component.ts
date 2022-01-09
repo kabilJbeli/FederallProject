@@ -3,7 +3,6 @@ import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {ApplicationService} from "../services/application.service";
 import {Router} from "@angular/router";
 import {EventRequest} from "../models/EventRequest";
-import {Teacher} from "../models/teacher";
 import {Subject} from "../models/subject";
 import {Group} from "../models/group";
 
@@ -23,8 +22,8 @@ export class GenerateEventsComponent implements OnInit {
     private route: Router
   ) {
     this.formGroup = this.formBuilder.group({
-       subjects:[null, Validators.required],
-      groups:[null, Validators.required],
+       subjects:[null, [Validators.required]],
+      groups:[null, [Validators.required]],
     });
   }
   ngOnInit(): void {
@@ -40,7 +39,7 @@ export class GenerateEventsComponent implements OnInit {
 
   onSubmit(eventRequest:EventRequest):void{
     this.spinner=true;
-
+console.log(eventRequest);
 this.service.generateAgenda(eventRequest).subscribe(result=>{
   this.spinner=false;
 },err=>{
