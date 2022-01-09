@@ -14,7 +14,7 @@
   "ecolePolytechnic": "Ecole Polytechnique Internationale Privée de Tunis",
   "teacher": {
     "cin": "Cin",
-    "name": "Name",
+    "name": "Teacher Name",
     "lastName": "Last Name",
     "email": "Email",
     "birthDate": "Birth Date",

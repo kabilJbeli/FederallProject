@@ -13,6 +13,18 @@
         <mat-label>{{ 'subject.courseload' | translate }}</mat-label>
         <input matInput type="number"  formControlName="course_LOAD">
       </mat-form-field>
+      <mat-form-field appearance="fill">
+        <mat-label>{{ 'group.name' | translate }}</mat-label>
+        <mat-select matNativeControl multiple formControlName="group" >
+            <mat-option *ngFor="let group of groups" [value]="group">{{group.groupname}}</mat-option>
+        </mat-select>
+      </mat-form-field>
+      <mat-form-field appearance="fill">
+        <mat-label>{{ 'teacher.name' | translate }}</mat-label>
+        <mat-select matNativeControl multiple  formControlName="teacher">
+            <mat-option *ngFor="let teacher of teachers" [value]="teacher">{{teacher.name}} {{teacher.lastname}}</mat-option>
+        </mat-select>
+      </mat-form-field>
       <div class="form-element">
         <button mat-button color="warn" type='button'   class="button mr-3" (click)="cancel($event)">{{ 'cancel' | translate }}</button>
         <button mat-raised-button color="primary" type="submit" class="button" [disabled]="!formGroup.valid">{{ 'subject.updateSubject' | translate }}</button>

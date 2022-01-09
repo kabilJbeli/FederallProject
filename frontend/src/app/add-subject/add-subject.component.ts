@@ -4,6 +4,8 @@ import { Observable } from 'rxjs';
 import { ApplicationService } from '../services/application.service';
 import { Router } from '@angular/router';
 import { Subject } from '../models/subject';
+import { Group } from '../models/group';
+import { Teacher } from '../models/teacher';
 
 @Component({
   selector: 'app-add-subject',
@@ -13,6 +15,8 @@ import { Subject } from '../models/subject';
 export class AddSubjectComponent implements OnInit {
   public formGroup: FormGroup;
   public spinner: boolean = false;
+  public groups: Group[] = [];
+  public teachers: Teacher[] = [];
   constructor(
     private formBuilder: FormBuilder,
     private service: ApplicationService,
@@ -20,10 +24,19 @@ export class AddSubjectComponent implements OnInit {
   ) {
 
     this.formGroup = this.formBuilder.group({
-
       subject_NAME: [null, Validators.required],
       credit: [null, [Validators.required]],
       course_LOAD: [null, [Validators.required]],
+      group: [null, [Validators.required]],
+      teacher: [null, [Validators.required]]
+    });
+
+    this.service.getAllGroup().subscribe((response: Group[]) => {
+      this.groups = response;
+    });
+    
+    this.service.getAllTeacher().subscribe((response: Teacher[]) => {
+      this.teachers = response;
     });
   }
 
