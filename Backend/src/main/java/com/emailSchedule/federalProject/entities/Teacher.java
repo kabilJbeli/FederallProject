@@ -39,10 +39,9 @@ public class Teacher {
 	private LocalDate BIRTHDATE;
 	
 	private Boolean isOpenForEveningClasses;
-	
-
 	private Set<TeacherAvailability> availability;
-	@OneToMany
+
+	@OneToMany(mappedBy = "teacher")
 	public Set<TeacherAvailability> getAvailability() {
 		return availability;
 	}
