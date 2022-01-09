@@ -2,6 +2,7 @@ package com.emailSchedule.federalProject.entities;
 
 import java.io.Serializable;
 import java.time.LocalDateTime;
+import java.util.Set;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -10,6 +11,7 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
@@ -21,7 +23,6 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 @JsonIgnoreProperties({ "hibernateLazyInitializer" })
 public class CalendarEvent implements Serializable {
 
-
 	/**
 	 * 
 	 */
@@ -31,30 +32,27 @@ public class CalendarEvent implements Serializable {
 	@Column(name = "DESCRIPTION")
 	private String description;
 	@Column(name = "TITLE")
-	private String   title;
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private String title;
+
 	@Column(name = "EVENTID")
 	private Integer id;
 	@Column(name = "ENDDATE")
-	private LocalDateTime  end;
+	private LocalDateTime end;
 	@Column(name = "STARTDATE")
-	private LocalDateTime  start;
-	
+	private LocalDateTime start;
+
 
 	private Subject subject;
-	
-	private Groups group;
-	
+	private Set<Groups> group;
 	private Teacher teacher;
-	
+
 	public CalendarEvent() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	
+
 	public CalendarEvent(String description, String title, Integer id, LocalDateTime end, LocalDateTime start,
-			Subject subject, Groups group, Teacher teacher) {
+			Subject subject, Set<Groups> group, Teacher teacher) {
 		super();
 		this.description = description;
 		this.title = title;
@@ -65,70 +63,82 @@ public class CalendarEvent implements Serializable {
 		this.group = group;
 		this.teacher = teacher;
 	}
-	
-	
 
 	public Boolean getAllDay() {
 		return allDay;
 	}
+
 	public void setAllDay(Boolean allDay) {
 		this.allDay = allDay;
 	}
+
 	public String getDescription() {
 		return description;
 	}
+
 	public void setDescription(String description) {
 		this.description = description;
 	}
+
 	public String getTitle() {
 		return title;
 	}
+
 	public void setTitle(String title) {
 		this.title = title;
 	}
 
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	public Integer getId() {
 		return id;
 	}
+
 	public void setId(Integer id) {
 		this.id = id;
 	}
+
 	public LocalDateTime getEnd() {
 		return end;
 	}
+
 	public void setEnd(LocalDateTime end) {
 		this.end = end;
 	}
+
 	public LocalDateTime getStart() {
 		return start;
 	}
+
 	public void setStart(LocalDateTime start) {
 		this.start = start;
 	}
-	
+
 	@OneToOne
 	public Subject getSubject() {
 		return subject;
 	}
+
 	public void setSubject(Subject subject) {
 		this.subject = subject;
 	}
-	
-	@ManyToOne
-	public Groups getGroup() {
+
+	@ManyToMany
+	public Set<Groups> getGroup() {
 		return group;
 	}
-	public void setGroup(Groups group) {
+
+	public void setGroup(Set<Groups> group) {
 		this.group = group;
 	}
+
 	@OneToOne
 	public Teacher getTeacher() {
 		return teacher;
 	}
+
 	public void setTeacher(Teacher teacher) {
 		this.teacher = teacher;
 	}
-
-
 
 }

@@ -18,7 +18,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @Entity
 @JsonIgnoreProperties({ "hibernateLazyInitializer" })
-@Table(name="groupprojet")
+@Table(name = "groupprojet")
 public class Groups {
 
 	@Column(name = "IDGROUP")
@@ -28,8 +28,18 @@ public class Groups {
 	private String groupname;
 
 	@Column(name = "GROUPMAJOR")
-	
+
 	private Major groupmajore;
+
+	private Boolean isEveningClass;
+
+	public Boolean getIsEveningClass() {
+		return isEveningClass;
+	}
+
+	public void setIsEveningClass(Boolean isEveningClass) {
+		this.isEveningClass = isEveningClass;
+	}
 
 	public Groups() {
 		super();
@@ -63,7 +73,7 @@ public class Groups {
 	}
 
 	@ManyToMany
-	Set <Subject> subject;
-	
-
+	Set<Subject> subject;
+	@ManyToMany
+	private CalendarEvent event;
 }

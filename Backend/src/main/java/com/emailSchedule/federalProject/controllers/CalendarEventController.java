@@ -3,6 +3,7 @@ package com.emailSchedule.federalProject.controllers;
 import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -31,16 +32,16 @@ public class CalendarEventController {
 		
 		List<Subject> subjects = eventRequestBody.getSubjects();
 		List<Teacher> teachers = eventRequestBody.getTeachers();
-		Groups group = eventRequestBody.getGroups();
+		Set<Groups> groups = eventRequestBody.getGroups();
+		CalendarEvent calendarEvent = new CalendarEvent();	
 
 		for (Subject subject : subjects) {
-			CalendarEvent calendarEvent = new CalendarEvent();	
 			
 			calendarEvent.setSubject(subject);
-			calendarEvent.setGroup(group);
+			calendarEvent.setGroup(groups);
 			
 			for(Teacher teacher : teachers) {
-				if(group.getIsEveningClass() && teacher.getIsOpenForEveningClasses()) {
+			/*	if(group.getIsEveningClass() && teacher.getIsOpenForEveningClasses()) {
 					for(TeacherAvailability  availability: teacher.getAvailability()){
 					if(availability.getIsNotTaken()) {
 						calendarEvent.setStart(availability.getTimeAvailability());
@@ -57,7 +58,7 @@ public class CalendarEventController {
 							calendarEvent.setEnd(endTime);
 							return;
 							}
-						}
+						}*/
 				}
 			}							
 			
@@ -66,4 +67,4 @@ public class CalendarEventController {
 		
 	}
 
-}
+

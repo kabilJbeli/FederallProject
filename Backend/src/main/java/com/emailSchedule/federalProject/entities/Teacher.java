@@ -1,6 +1,7 @@
 package com.emailSchedule.federalProject.entities;
 
 import java.time.LocalDate;
+import java.util.List;
 import java.util.Set;
 
 import javax.persistence.Column;
@@ -11,6 +12,8 @@ import javax.persistence.Id;
 import javax.persistence.JoinTable;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
+
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @Entity
@@ -35,6 +38,27 @@ public class Teacher {
 	@Column(name = "BIRTHDATE")
 	private LocalDate BIRTHDATE;
 	
+	private Boolean isOpenForEveningClasses;
+	
+
+	private Set<TeacherAvailability> availability;
+	@OneToMany
+	public Set<TeacherAvailability> getAvailability() {
+		return availability;
+	}
+
+	public void setAvailability(Set<TeacherAvailability> availability) {
+		this.availability = availability;
+	}
+
+	public Boolean getIsOpenForEveningClasses() {
+		return isOpenForEveningClasses;
+	}
+
+	public void setIsOpenForEveningClasses(Boolean isOpenForEveningClasses) {
+		this.isOpenForEveningClasses = isOpenForEveningClasses;
+	}
+
 	public Teacher() {
 		super();
 		// TODO Auto-generated constructor stub

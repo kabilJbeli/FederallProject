@@ -13,14 +13,14 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 @JsonIgnoreProperties({ "hibernateLazyInitializer" })
 public class TeacherAvailability {
 
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+
 	private Integer availabilityId;
 	
 	private LocalDateTime timeAvailability;
 	
 	private Boolean isNotTaken;
-
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	public Integer getAvailabilityId() {
 		return availabilityId;
 	}
