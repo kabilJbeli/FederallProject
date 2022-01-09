@@ -1,3 +1,5 @@
+import {TeacherAvailability} from "./teacher-availability";
+
 export interface Teacher {
   teacher_id: number;
   cin: number;
@@ -6,4 +8,5 @@ export interface Teacher {
   birthdate: Date;
   email: String;
   isOpenForEveningClasses:Boolean;
+  availability:TeacherAvailability[];
 }

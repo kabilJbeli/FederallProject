@@ -59,6 +59,7 @@ import { AddDepartmentComponent } from './add-department/add-department.componen
 import { DepartmentListComponent } from './department-list/department-list.component';
 import { UpdateDepartmentComponent } from './update-department/update-department.component';
 import { GenerateEventsComponent } from './generate-events/generate-events.component';
+import {MatNativeDatetimeModule} from "@mat-datetimepicker/core";
 
 @NgModule({
   declarations: [
@@ -102,6 +103,7 @@ import { GenerateEventsComponent } from './generate-events/generate-events.compo
     ReactiveFormsModule,
     HighchartsChartModule,
     MaterialModule,
+    MatNativeDatetimeModule,
     BrowserAnimationsModule,
     AppRoutingModule,
     NgbModule,
