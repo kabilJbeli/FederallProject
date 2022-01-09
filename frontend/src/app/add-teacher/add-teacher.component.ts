@@ -27,6 +27,7 @@ export class AddTeacherComponent implements OnInit {
       ],
       birthdate: [null, [Validators.required]],
       email: [null, [Validators.required, Validators.email]],
+      isOpenForEveningClasses: [false, [Validators.required]],
     });
   }
 

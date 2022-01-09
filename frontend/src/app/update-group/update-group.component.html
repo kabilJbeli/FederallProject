@@ -20,7 +20,9 @@
       <button mat-raised-button color="primary" type="submit" class="button" [disabled]="!formGroup.valid">{{ 'group.updateGroup' | translate }}</button>
     </div>
 
-
+    <section class="form-element pb-5">
+      <mat-checkbox class="example-margin"  formControlName="isEveningClass">Is Evening Class</mat-checkbox>
+    </section>
   </form>
   <div  *ngIf="spinner" class="w-100 d-flex justify-content-center align-items-center mt-5">
     <mat-spinner></mat-spinner>
