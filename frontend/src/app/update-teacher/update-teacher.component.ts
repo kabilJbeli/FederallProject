@@ -32,6 +32,7 @@ export class UpdateTeacherComponent implements OnInit {
       ],
       birthdate: [null, [Validators.required]],
       email: [null, [Validators.required, Validators.email]],
+      isOpenForEveningClasses:[false,[Validators.required]]
     });
     const id: number = parseInt(
       this._Activatedroute.snapshot.paramMap.get('id') || '0'
@@ -45,6 +46,7 @@ export class UpdateTeacherComponent implements OnInit {
         cin: result.cin,
         birthdate: result.birthdate,
         email: result.email,
+        isOpenForEveningClasses:result.isOpenForEveningClasses
       });
     });
   }

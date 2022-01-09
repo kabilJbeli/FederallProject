@@ -5,4 +5,5 @@ export interface Teacher {
   lastname: String;
   birthdate: Date;
   email: String;
+  isOpenForEveningClasses:Boolean;
 }

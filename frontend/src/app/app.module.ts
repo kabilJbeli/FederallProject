@@ -58,6 +58,7 @@ import { UpdateProfileInformationComponent } from './update-profile-information/
 import { AddDepartmentComponent } from './add-department/add-department.component';
 import { DepartmentListComponent } from './department-list/department-list.component';
 import { UpdateDepartmentComponent } from './update-department/update-department.component';
+import { GenerateEventsComponent } from './generate-events/generate-events.component';
 
 @NgModule({
   declarations: [
@@ -89,6 +90,7 @@ import { UpdateDepartmentComponent } from './update-department/update-department
     AddDepartmentComponent,
     DepartmentListComponent,
     UpdateDepartmentComponent,
+    GenerateEventsComponent,
   ],
   imports: [
     BrowserModule,
