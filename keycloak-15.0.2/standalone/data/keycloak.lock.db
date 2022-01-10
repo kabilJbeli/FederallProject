@@ -1,6 +1,6 @@
 #FileLock
-#Thu Jan 06 22:13:30 WAT 2022
-hostName=DESKTOP-IJJ5R79
-id=17e313d431707495efa73853ec7d65a6b4e7a249eae
+#Mon Jan 10 12:29:03 CET 2022
+hostName=Hamdi
+id=17e3af4ac2bde5df30bca10da513b4ba18e4067fc98
 method=file
-server=192.168.42.1\:59529
+server=192.168.163.1\:8577
