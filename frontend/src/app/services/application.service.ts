@@ -9,6 +9,7 @@ import { ClassRoom } from '../models/classRoom';
 import { Subject } from '../models/subject';
 import {User} from "../models/user";
 import { Department } from '../models/department';
+import {EventRequest} from "../models/EventRequest";
 
 @Injectable({
   providedIn: 'root',
@@ -133,5 +134,9 @@ export class ApplicationService {
   }
   updateDepatement(department: Department): Observable<Department> {
     return this.http.put<Department>(`api/departement/update`, department);
+  }
+
+  generateAgenda(eventRequest: EventRequest): Observable<EventRequest> {
+    return this.http.post<EventRequest>(`api/events/generate`, eventRequest);
   }
 }

@@ -4,4 +4,5 @@ export interface Group {
   groupId: number;
   groupname: String;
   groupmajore: Major;
+  isEveningClass:Boolean;
 }

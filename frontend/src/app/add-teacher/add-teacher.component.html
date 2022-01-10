@@ -21,12 +21,48 @@
       <mat-label>{{ 'teacher.email' | translate }}</mat-label>
       <input matInput type="email"  formControlName="email">
     </mat-form-field>
-    <mat-form-field appearance="fill">
+
+    <mat-form-field appearance="fill" class="form-element">
       <mat-label>{{ 'teacher.birthDate' | translate }}</mat-label>
       <input matInput [matDatepicker]="picker" formControlName="birthdate" readonly>
       <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
       <mat-datepicker #picker startView="year" ></mat-datepicker>
     </mat-form-field>
+
+
+    <mat-form-field class="form-element">
+
+
+      <mat-chip-list #chipList aria-label="Choose a date" (click)="picker.open()">
+        <mat-chip
+          *ngFor="let value of model"
+          [selectable]="false"
+          [removable]="true"
+          (removed)="remove(value)"
+        >
+          {{ value.timeAvailability | date:'dd-mm-yyyy hh:mm' }}
+          <mat-icon matChipRemove *ngIf="true">cancel</mat-icon>
+        </mat-chip>
+        <input
+          matInput
+          [matDatetimepicker]="picker2"
+          (dateChange)="dateChanged($event)"
+          [matChipInputFor]="chipList"
+          hidden
+        />
+      </mat-chip-list>
+      <mat-datetimepicker-toggle [for]="picker2" matSuffix></mat-datetimepicker-toggle>
+      <mat-datetimepicker #picker2 type="datetime" [openOnFocus]="true" [timeInterval]="5"
+                          [mode]="'portrait'"
+      >
+
+      </mat-datetimepicker>
+    </mat-form-field>
+    <section class="form-element pb-5">
+      <mat-checkbox class="example-margin"  formControlName="isOpenForEveningClasses">
+        Is Open For Evening Class
+      </mat-checkbox>
+    </section>
 
     <div class="form-element">
       <button mat-raised-button color="primary" type="submit" class="button" [disabled]="!formGroup.valid">{{ 'teacher.addTeacher' | translate }}</button>

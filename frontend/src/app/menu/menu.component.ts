@@ -55,9 +55,9 @@ export class MenuComponent implements OnInit {
         },
       },
       {
-        label: 'Agenda',
+        label: 'Generate Calendar',
         command: (event: any) => {
-          this.route.navigate(['/schedule']);
+          this.route.navigate(['/generate-calendar']);
         },
       },
 

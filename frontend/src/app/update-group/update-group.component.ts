@@ -28,6 +28,7 @@ export class UpdateGroupComponent implements OnInit {
     this.formGroup = this.formBuilder.group({
       groupname: [null, Validators.required],
       groupmajore: [null, [Validators.required]],
+      isEveningClass:[false, [Validators.required]],
     });
     this.service.getAllMajor().subscribe((response: Major[]) => {
       this.Majors = response;
@@ -41,6 +42,7 @@ export class UpdateGroupComponent implements OnInit {
       this.formGroup.patchValue({
         groupname: result.groupname,
         groupmajore: result.groupmajore,
+        isEveningClass:result.isEveningClass
       });
     });
   }

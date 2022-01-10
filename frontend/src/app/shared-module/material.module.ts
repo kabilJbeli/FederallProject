@@ -41,6 +41,7 @@ import { MatTabsModule } from '@angular/material/tabs';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatTreeModule } from '@angular/material/tree';
+import { MatDatetimepickerModule } from "@mat-datetimepicker/core";
 
 @NgModule({
   exports: [
@@ -69,6 +70,7 @@ import { MatTreeModule } from '@angular/material/tree';
     MatListModule,
     MatMenuModule,
     MatNativeDateModule,
+    MatDatetimepickerModule,
     MatPaginatorModule,
     MatProgressBarModule,
     MatProgressSpinnerModule,
@@ -114,6 +116,7 @@ import { MatTreeModule } from '@angular/material/tree';
     MatListModule,
     MatMenuModule,
     MatNativeDateModule,
+    MatDatetimepickerModule,
     MatPaginatorModule,
     MatProgressBarModule,
     MatProgressSpinnerModule,

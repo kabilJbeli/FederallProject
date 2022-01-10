@@ -1,0 +1,33 @@
+<div class="container  mt-4">
+  <h2 class="mb-4">{{'teacher.addNew' | translate}}:</h2>
+  <form [formGroup]="formGroup" (ngSubmit)="onSubmit(formGroup.value)" class="form" *ngIf="!spinner">
+
+    <mat-form-field class="form-element">
+      <mat-label>{{ 'subject.name' | translate }}</mat-label>
+      <mat-select multiple formControlName="subjects">
+        <mat-option *ngFor="let subject of subjects" [value]="subject">
+          {{subject.subject_NAME}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field class="form-element">
+      <mat-label>{{ 'group.name' | translate }}</mat-label>
+      <mat-select multiple formControlName="groups">
+        <mat-option *ngFor="let group of groups" [value]="group">
+          {{group.groupname}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <div class="form-element">
+      <button mat-raised-button color="primary" type="submit" class="button" [disabled]="!formGroup.valid">
+        {{ 'generate' | translate }}
+      </button>
+    </div>
+
+  </form>
+  <div  *ngIf="spinner" class="w-100 d-flex justify-content-center align-items-center mt-5">
+    <mat-spinner></mat-spinner>
+  </div>
+</div>
