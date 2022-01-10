@@ -57,7 +57,7 @@ public class CalendarEventController {
 								calendarEvent.setClassroom(classroom);
 							}
 						}
-					} else if (!group.getIsEveningClass() && !teacher.getIsOpenForEveningClasses()) {
+					} else if (!group.getIsEveningClass()) {
 						for (TeacherAvailability availability : teacher.getAvailability()) {
 							if (availability.getIsNotTaken()) {
 								if (calendarEvent.getTeacher() != null)

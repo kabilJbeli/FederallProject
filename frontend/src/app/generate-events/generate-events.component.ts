@@ -42,6 +42,7 @@ export class GenerateEventsComponent implements OnInit {
 console.log(eventRequest);
 this.service.generateAgenda(eventRequest).subscribe(result=>{
   this.spinner=false;
+  this.route.navigate(['/schedule']);
 },err=>{
   this.spinner=true;
 })

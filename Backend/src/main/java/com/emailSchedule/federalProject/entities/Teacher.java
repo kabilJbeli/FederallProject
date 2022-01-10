@@ -4,8 +4,10 @@ import java.time.LocalDate;
 import java.util.List;
 import java.util.Set;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -41,7 +43,7 @@ public class Teacher {
 	private Boolean isOpenForEveningClasses;
 	private Set<TeacherAvailability> availability;
 
-	@OneToMany(mappedBy = "teacher")
+	@OneToMany(mappedBy = "teacher", fetch = FetchType.EAGER,cascade = CascadeType.ALL)
 	public Set<TeacherAvailability> getAvailability() {
 		return availability;
 	}
