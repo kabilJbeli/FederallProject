@@ -6,6 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.emailSchedule.federalProject.entities.Teacher;
+import com.emailSchedule.federalProject.entities.TeacherAvailability;
+import com.emailSchedule.federalProject.repositories.TeacherAvailabilityRepository;
 import com.emailSchedule.federalProject.repositories.TeacherRepository;
 
 @Service
@@ -13,6 +15,9 @@ public class TeacherService {
 
 	@Autowired
 	private TeacherRepository repository;
+	
+	@Autowired
+	private TeacherAvailabilityRepository repositoryavailability;
 
 	public List<Teacher> findAll() {
 		return repository.findAll();
