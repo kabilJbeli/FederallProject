@@ -23,6 +23,7 @@ import {UpdateProfileInformationComponent} from "./update-profile-information/up
 import { DepartmentListComponent } from './department-list/department-list.component';
 import { AddDepartmentComponent } from './add-department/add-department.component';
 import { UpdateDepartmentComponent } from './update-department/update-department.component';
+import {GenerateEventsComponent} from "./generate-events/generate-events.component";
 
 export const ROUTES: Routes = [
   {
@@ -137,6 +138,11 @@ export const ROUTES: Routes = [
   {
     path: 'add-department',
     component: AddDepartmentComponent,
+    canActivate: [AuthGuard],
+  },
+  {
+    path: 'generate-calendar',
+    component: GenerateEventsComponent,
     canActivate: [AuthGuard],
   },
   {

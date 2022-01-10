@@ -24,6 +24,7 @@ export class AddGroupComponent implements OnInit {
     this.formGroup = this.formBuilder.group({
       groupname: [null, Validators.required],
       groupmajore: [null, [Validators.required]],
+      isEveningClass:[false, [Validators.required]],
     });
     this.service.getAllMajor().subscribe((response: Major[]) => {
       this.Majors = response;
